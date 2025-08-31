@@ -1,8 +1,9 @@
 ---
 title: 'Necta'
 description: 'An intelligent, automated platform that makes stablecoin earnings seamless, personalized, and optimized.'
-href: 'https://nectafi.xyz'
+href: 'https://github.com/samueldanso/necta'
 status: 'startup'
+sort: 1
 ---
 
 # Necta

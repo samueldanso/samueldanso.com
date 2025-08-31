@@ -15,7 +15,7 @@ export default function Home() {
 				isActive={false}
 			/>
 			<AboutMe />
-			<WorkExperience />
+			{/* <WorkExperience /> */}
 			<Projects />
 			<OrbitingAnimation />
 			<ContactMe />

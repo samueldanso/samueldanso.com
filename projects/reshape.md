@@ -1,10 +1,11 @@
 ---
 title: 'Reshape'
 description: 'A GenAI NFT platform where artists, collectors, and vibe creators can generate, mint, and curate art into unique galleries'
-href: 'https://reshape-ai-demo.vercel.app'
+href: 'https://github.com/samueldanso/reshape'
 status: 'shapecraft 2025'
+sort: 5
 ---
 
 # Reshape
 
-A GenAI NFT platform where artists, collectors, and vibe creators can generate, mint, and curate art into unique galleries.
+A GenAI NFT platform where artists, collectors, and vibe creators can generate, mint, and curate art into unique galleries

@@ -35,6 +35,7 @@ const projects = defineCollection({
 		description: z.string(),
 		href: z.string(),
 		status: z.string(),
+		sort: z.number(),
 		tech: z.array(z.string()).optional(),
 	}),
 })

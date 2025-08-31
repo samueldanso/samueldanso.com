@@ -1,8 +1,9 @@
 ---
 title: 'ZeroAI'
 description: 'A decentralized solution that provides offline access to AI agents, empowering users in remote and underserved areas.'
-href: 'https://github.com/samueldanso/zeroAI-muaccra'
+href: 'https://github.com/samueldanso/zeroai'
 status: 'muaccra 2024'
+sort: 8
 ---
 
 # ZeroAI
