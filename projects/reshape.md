@@ -1,7 +1,7 @@
 ---
 title: 'Reshape'
 description: 'A GenAI NFT platform where artists, collectors, and vibe creators can generate, mint, and curate art into unique galleries'
-href: 'https://github.com/samueldanso/reshape'
+href: 'https://github.com/samueldanso/zeroAI-muaccra'
 status: 'shapecraft 2025'
 sort: 5
 ---
