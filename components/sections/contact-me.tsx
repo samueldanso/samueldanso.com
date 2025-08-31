@@ -63,7 +63,7 @@ export function ContactMe() {
 					website="LinkedIn"
 				/>
 				<ContactLink
-					href={siteConfig.links.email}
+					email="me.samueldanso@gmail.com"
 					title="me.samueldanso@gmail.com"
 					website="Email"
 				/>
