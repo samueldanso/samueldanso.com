@@ -12,7 +12,7 @@ export default function Home() {
       <ProfileHeader
         name="Samuel Danso"
         title="Full-Stack Engineer"
-        isActive={false}
+        isActive={true}
       />
       <ContactMe />
       <AboutMe />

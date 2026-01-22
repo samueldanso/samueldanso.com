@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Samuel Danso: Full-Stack Software Engineer",
+  name: "Samuel Danso | Full-Stack Engineer",
   description: "Full-Stack Engineer.",
   url: "https://samueldanso.com",
   ogImage: "https://samueldanso.com/opengraph-image.png",
@@ -15,3 +15,5 @@ export const siteConfig = {
     cal: "https://cal.com/samueldanso/book-a-call",
   },
 };
+
+
