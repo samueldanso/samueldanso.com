@@ -41,6 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 /examples
+/todos.md
 
 # Content Collections
 .content-collections

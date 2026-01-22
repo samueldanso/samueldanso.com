@@ -1,41 +1,35 @@
+import { siteConfig } from "@/config/site";
+
 export function AboutMe() {
   return (
     <section className="prose prose-zinc dark:prose-invert text-[15px] animate-slide-from-down-and-fade-2 text-pretty">
-      <p className="leading-relaxed">
-        I build next-generation blockchain and AI products for the future of the
-        web and frontier tech.
+      <p>
+        I build AI and web3 products with deep care for how they work and how
+        they feel.
       </p>
-      <p className="leading-relaxed mt-4">
-        Beyond the screen, I enjoy traveling and exploring the world with a
-        nomadic spirit.
+      <p className="mt-3">
+        I combine engineering, product thinking, and design to create clean,
+        functional experiences that solve real problems.
       </p>
-      <p className="leading-relaxed mt-4">
-        Check out my{" "}
+      <p className="mt-3">
+        8x international hackathon winner | Building from anywhere
+      </p>
+      <p className="mt-3">
+        Interested in working together?{" "}
         <a
-          href="https://read.cv/samueldanso"
+          href="https://cal.com/samueldanso/book-a-call"
           target="_blank"
           rel="noopener noreferrer"
           className="underline hover:no-underline transition-all duration-200"
         >
-          Resume
+          Book a call
         </a>{" "}
-        to learn more about me. You can also reach out to me on{" "}
+        or{" "}
         <a
-          href="https://x.com/samueldans0"
-          target="_blank"
-          rel="noopener noreferrer"
+          href={siteConfig.links.email}
           className="underline hover:no-underline transition-all duration-200"
         >
-          X
-        </a>{" "}
-        or see more of my work on{" "}
-        <a
-          href="https://github.com/samueldanso"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:no-underline transition-all duration-200"
-        >
-          GitHub
+          send an email
         </a>
         .
       </p>

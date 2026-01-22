@@ -1,13 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { ThemeProvider } from "next-themes";
 import { ImageViewer } from "@/components/shells/image-viewer";
+import { Nav } from "@/components/sections/nav";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -19,11 +31,22 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "Samuel Danso",
+    "Full-Stack Engineer",
+    "Frontend Engineer",
+    "Product Engineer",
     "Software Engineer",
-    "Full-Stack Developer",
-    "Blockchain Developer",
+    "AI Development",
+    "AI Developer",
+    "AI Engineer",
+    "AI Product",
+    "AI Product Engineer",
+    "AI Product Developer",
+    "Web3 Development",
     "Web3 Developer",
-    "Smart Contract Developer",
+    "Web3 Engineer",
+    "Web3 Product",
+    "Web3 Product Engineer",
+    "Web3 Product Developer",
     "samueldanso",
     "samueldanso.com",
     "samueldanso portfolio",
@@ -79,16 +102,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} min-h-screen antialiased font-sans`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} min-h-screen antialiased font-sans`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <main className="mx-auto w-full mb-16 max-w-screen-sm py-8">
-            {children}
-          </main>
+          <Nav />
+          <main className="mx-auto w-full mb-16 py-8">{children}</main>
           <ImageViewer />
         </ThemeProvider>
       </body>
