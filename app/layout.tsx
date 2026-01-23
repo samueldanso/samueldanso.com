@@ -107,7 +107,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
-          <main className="mx-auto w-full mb-16 py-8">{children}</main>
+          <main className="mx-auto w-full mb-16 pt-16 pb-6 sm:pt-20 sm:pb-8">{children}</main>
           <ImageViewer />
         </ThemeProvider>
       </body>

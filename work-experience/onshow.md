@@ -1,8 +1,10 @@
 ---
-title: 'OnShow'
-href: 'learn-new-things-by-doing'
-status: 'freelancing'
-buttonText: 'Learn New Things by Doing'
+year: "2024"
+isPresent: false
+role: "Freelance Full‑Stack Engineer"
+company: "OnShow"
+companyHref: "https://onshow.com"
+location: "Remote"
 ---
 
-Learn New Things by Doing
+OnShow

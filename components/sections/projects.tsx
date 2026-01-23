@@ -1,53 +1,63 @@
-import { Icons } from "@/components/icons";
-import { ShellSection } from "@/components/ui/shell";
 import { allProjects } from "content-collections";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { SectionGrid, SectionTitle, SectionContent } from "@/components/ui/section-grid";
 
 export function Projects() {
   // Sort projects by the sort field and take only featured (first 5-6)
   const sortedProjects = [...allProjects].sort((a, b) => a.sort - b.sort);
   const featuredProjects = sortedProjects.slice(0, 6);
 
+  // Generate random dates for now - user will update later
+  const dates = ["2025", "2024", "2023", "2022", "2021", "2020"];
+
   return (
-    <ShellSection index={4} title="Featured Projects">
-      <div className="grid grid-cols-1 gap-6 ">
-        {featuredProjects.map((project) => (
-          <a
-            key={project._meta.path}
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative flex cursor-pointer flex-row items-center justify-between rounded-md duration-300 hover:before:absolute hover:before:-inset-2.5 hover:before:rounded-md hover:before:bg-accent/20 hover:before:content-['']"
-          >
-            <div className="flex flex-col space-y-1 z-10">
-              <div className="flex items-center space-x-2">
-                <span className="text-[15px] font-medium leading-4">
+    <SectionGrid>
+      <SectionTitle>Projects</SectionTitle>
+      <SectionContent />
+      {featuredProjects.map((project, index) => (
+        <div key={project._meta.path} className="contents">
+          <dt className={`col-span-12 sm:col-span-4 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}>
+            <h3 className="text-muted-foreground text-[15px] font-normal">
+              {project.date || dates[index] || "2024"}
+            </h3>
+          </dt>
+          <dd className={`col-span-12 sm:col-span-8 ${index > 0 ? "border-none pt-0" : ""}`}>
+            <div>
+              <div className="mb-1">
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground font-medium underline decoration-[1.5px] underline-offset-[2.5px] decoration-border hover:decoration-foreground/40 transition-colors inline-flex items-center gap-0.5 break-words"
+                >
                   {project.title}
-                </span>
-                <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-xs font-normal text-muted-foreground">
-                  {project.status}
-                </div>
+                  <ArrowUpRight
+                    size={16}
+                    className="inline ml-0.5 mb-0.5 decoration-transparent text-muted-foreground"
+                  />
+                </a>
               </div>
-              <span className="text-[15px] prose prose-zinc dark:prose-invert">
+              <p className="text-base text-muted-foreground leading-relaxed pt-1">
                 {project.description}
-              </span>
+              </p>
             </div>
-            <div className="transition duration-150 group-hover:rotate-45">
-              <Icons.link className="size-3.5 whitespace-nowrap text-muted-foreground" />
-            </div>
-          </a>
-        ))}
-        {sortedProjects.length > featuredProjects.length && (
-          <Link
-            href="/projects"
-            className="text-foreground underline hover:no-underline transition-all duration-200 text-[15px] font-medium flex items-center gap-1"
-          >
-            All projects <ArrowRight className="size-4" />
-          </Link>
-        )}
-      </div>
-    </ShellSection>
+          </dd>
+        </div>
+      ))}
+      {sortedProjects.length > featuredProjects.length && (
+        <div className="contents">
+          <dt className="col-span-12 sm:col-span-4 mt-4 border-none pt-0 sm:mt-0"></dt>
+          <dd className="col-span-12 sm:col-span-8 border-none pt-0">
+            <Link
+              href="/projects"
+              className="text-foreground underline decoration-border hover:decoration-foreground/40 transition-colors text-base font-medium inline-flex items-center gap-1"
+            >
+              All projects <ArrowRight className="size-4" />
+            </Link>
+          </dd>
+        </div>
+      )}
+    </SectionGrid>
   );
 }
-

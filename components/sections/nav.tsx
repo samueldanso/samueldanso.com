@@ -1,65 +1,68 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
+import { Command } from "cmdk";
+import { Home, CommandIcon, FileText, FolderKanban, Mail, Twitter, Loader2, Moon, Sun, Github, Linkedin } from "lucide-react";
+import { siteConfig } from "@/config/site";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 export function Nav() {
   const { theme, setTheme } = useTheme();
   const router = useRouter();
-  const [showHint, setShowHint] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    // Only show hint if user hasn't used keyboard nav before
-    const hasUsedNav = localStorage.getItem("nav-hint-dismissed");
-    if (!hasUsedNav) {
-      setShowHint(true);
-      // Auto-hide after 5 seconds anyway
-      const timer = setTimeout(() => setShowHint(false), 5000);
-      return () => clearTimeout(timer);
-    }
   }, []);
 
-  const dismissHint = useCallback(() => {
-    setShowHint(false);
-    localStorage.setItem("nav-hint-dismissed", "true");
-  }, []);
+  const navigate = async (href: string) => {
+    if (!href) return;
+    setLoading(true);
+
+    if (href.includes("mailto:")) {
+      window.location.href = href;
+    } else if (href.includes("//")) {
+      window.open(href, "_blank", "noopener,noreferrer");
+    } else if (href === pathname) {
+      router.replace(href);
+    } else {
+      router.push(href);
+    }
+
+    setLoading(false);
+    setOpen(false);
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+    setOpen(false);
+  };
 
   useEffect(() => {
     if (!mounted) return;
 
-    const handler = (e: KeyboardEvent) => {
-      // Don't trigger if typing in input
-      const active = document.activeElement;
-      if (active?.tagName === "INPUT" || active?.tagName === "TEXTAREA") return;
+    // Prefetch routes
+    router.prefetch("/posts");
+    router.prefetch("/projects");
 
-      // Navigate with keyboard
-      if (e.key === "1" && !e.metaKey && !e.ctrlKey) {
-        dismissHint();
-        router.push("/");
-      } else if (e.key === "2" && !e.metaKey && !e.ctrlKey) {
-        dismissHint();
-        router.push("/blog");
-      } else if (e.key === "3" && !e.metaKey && !e.ctrlKey) {
-        dismissHint();
-        router.push("/projects");
-      } else if (e.key === "t" && !e.metaKey && !e.ctrlKey) {
-        dismissHint();
-        setTheme(theme === "dark" ? "light" : "dark");
+    // Toggle the menu when ⌘K or Ctrl+K is pressed
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setOpen((open) => !open);
       }
     };
 
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [mounted, theme, router, setTheme, dismissHint]);
-
-  const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, [mounted, router]);
 
   if (!mounted) {
     return null;
@@ -67,104 +70,115 @@ export function Nav() {
 
   return (
     <>
-      {/* Desktop nav - bottom left */}
-      <nav className="fixed bottom-6 left-6 z-50 font-mono text-xs hidden lg:block">
-        {showHint && (
-          <div className="mb-3 text-neutral-300 dark:text-neutral-700 animate-pulse">
-            press keys to navigate
-          </div>
-        )}
-        <div className="flex flex-col gap-1 text-neutral-400 dark:text-neutral-600">
-          <Link
-            href="/"
-            className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-          >
-            <span className="text-neutral-300 dark:text-neutral-700">[1]</span>{" "}
-            home
-          </Link>
-          <Link
-            href="/blog"
-            className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-          >
-            <span className="text-neutral-300 dark:text-neutral-700">[2]</span>{" "}
-            blog
-          </Link>
-          <Link
-            href="/projects"
-            className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-          >
-            <span className="text-neutral-300 dark:text-neutral-700">[3]</span>{" "}
-            projects
-          </Link>
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className="text-left hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-          >
-            <span className="text-neutral-300 dark:text-neutral-700">[t]</span>{" "}
-            {theme === "dark" ? "light" : "dark"}
-          </button>
-        </div>
-      </nav>
+      <Command.Dialog open={open} onOpenChange={setOpen}>
+        <Command.Input placeholder="Go to..." />
+        <Command.List>
+          {loading && (
+            <Command.Loading>
+              <div className="flex items-center justify-center p-4">
+                <Loader2 className="size-6 animate-spin" />
+              </div>
+            </Command.Loading>
+          )}
 
-      {/* Mobile nav - bottom bar */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden">
-        {/* Expanded menu */}
-        {mobileOpen && (
-          <div className="bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm border-t border-neutral-200 dark:border-neutral-800 px-6 py-4">
-            <div className="flex flex-col gap-3 font-mono text-sm text-neutral-600 dark:text-neutral-400">
-              <Link
-                href="/"
-                onClick={() => setMobileOpen(false)}
-                className="active:text-neutral-900 dark:active:text-neutral-100"
-              >
-                → home
-              </Link>
-              <Link
-                href="/blog"
-                onClick={() => setMobileOpen(false)}
-                className="active:text-neutral-900 dark:active:text-neutral-100"
-              >
-                → blog
-              </Link>
-              <Link
-                href="/projects"
-                onClick={() => setMobileOpen(false)}
-                className="active:text-neutral-900 dark:active:text-neutral-100"
-              >
-                → projects
-              </Link>
+          <Command.Empty>No results found.</Command.Empty>
+
+          <Command.Group heading="Pages">
+            <Command.Item onSelect={() => navigate("/")}>
+              <div className="flex items-center gap-2">
+                <Home size={16} />
+                <span>Home</span>
+              </div>
+            </Command.Item>
+            <Command.Item onSelect={() => navigate("/posts")}>
+              <div className="flex items-center gap-2">
+                <FileText size={16} />
+                <span>Posts</span>
+              </div>
+            </Command.Item>
+            <Command.Item onSelect={() => navigate("/projects")}>
+              <div className="flex items-center gap-2">
+                <FolderKanban size={16} />
+                <span>Projects</span>
+              </div>
+            </Command.Item>
+          </Command.Group>
+
+          <Command.Group heading="Appearance">
+            <Command.Item onSelect={toggleTheme}>
+              <div className="flex items-center gap-2">
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                <span>Switch theme</span>
+              </div>
+            </Command.Item>
+          </Command.Group>
+
+          <Command.Group heading="Contact">
+            <Command.Item onSelect={() => navigate(siteConfig.links.twitter)}>
+              <div className="flex items-center gap-2">
+                <Twitter size={16} />
+                <span>X</span>
+              </div>
+            </Command.Item>
+            <Command.Item onSelect={() => navigate(siteConfig.links.github)}>
+              <div className="flex items-center gap-2">
+                <Github size={16} />
+                <span>GitHub</span>
+              </div>
+            </Command.Item>
+            <Command.Item onSelect={() => navigate(siteConfig.links.linkedin)}>
+              <div className="flex items-center gap-2">
+                <Linkedin size={16} />
+                <span>LinkedIn</span>
+              </div>
+            </Command.Item>
+            <Command.Item onSelect={() => navigate(siteConfig.links.email)}>
+              <div className="flex items-center gap-2">
+                <Mail size={16} />
+                <span>Email</span>
+              </div>
+            </Command.Item>
+          </Command.Group>
+        </Command.List>
+      </Command.Dialog>
+
+      <nav
+        className={`${
+          isHome ? "w-12" : "w-28"
+        } fixed bottom-6 left-6 top-auto z-50 md:bottom-auto md:left-8 md:top-8 print:hidden`}
+      >
+        <div className="relative flex h-12 gap-2">
+          {!isHome && (
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Link
+                  href="/"
+                  className="absolute left-0 flex items-center justify-center size-12 rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:scale-110 active:scale-90 transition-all shadow-sm will-change-transform"
+                  aria-label="Go home"
+                >
+                  <Home size={20} />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent side="right">Home</TooltipContent>
+            </Tooltip>
+          )}
+          <Tooltip>
+            <TooltipTrigger asChild>
               <button
                 type="button"
-                onClick={() => {
-                  toggleTheme();
-                  setMobileOpen(false);
-                }}
-                className="text-left active:text-neutral-900 dark:active:text-neutral-100"
+                onClick={() => setOpen((open) => !open)}
+                className={`absolute rounded-full transition-all duration-250 ease-out flex items-center justify-center size-12 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:scale-110 active:scale-90 shadow-sm will-change-transform ${
+                  !isHome ? "left-14 delay-50" : "left-0 delay-300"
+                }`}
+                aria-label="Open menu"
               >
-                → {theme === "dark" ? "light mode" : "dark mode"}
+                <CommandIcon size={20} />
               </button>
-            </div>
-          </div>
-        )}
-
-        {/* Toggle bar */}
-        <div className="bg-white/90 dark:bg-neutral-950/90 backdrop-blur-sm border-t border-neutral-200 dark:border-neutral-800">
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="w-full px-6 py-4 font-mono text-xs text-neutral-500 dark:text-neutral-500 flex items-center justify-between"
-          >
-            <span>{mobileOpen ? "× close" : "↑ menu"}</span>
-            <span className="text-neutral-400 dark:text-neutral-600">
-              samueldanso.com
-            </span>
-          </button>
+            </TooltipTrigger>
+            <TooltipContent side="right">Menu</TooltipContent>
+          </Tooltip>
         </div>
       </nav>
-
-      {/* Spacer for mobile to prevent content being hidden behind nav */}
-      <div className="h-16 lg:hidden" />
     </>
   );
 }

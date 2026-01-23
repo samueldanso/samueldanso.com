@@ -1,8 +1,10 @@
 ---
-title: 'PDFScribe'
-href: 'solving-sellers-problem'
-status: 'contract'
-buttonText: 'Solving Sellers Problem'
+year: "2023"
+isPresent: false
+role: "Contract Full‑Stack Engineer"
+company: "PDFScribe"
+companyHref: "https://pdfscribe.com"
+location: "Remote"
 ---
 
-Solving Sellers Problem
+PDFScribe

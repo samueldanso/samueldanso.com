@@ -48,7 +48,7 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
-  --card: oklch(1 0 0);
+  --card: oklch(0.99 0.001 0);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.141 0.005 285.823);
@@ -82,7 +82,7 @@
 .dark {
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
+  --card: oklch(0.18 0.005 285.823);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
@@ -128,13 +128,13 @@
   }
 }
 
-/* Custom container styles for Tailwind v4 - matches examples/www layout */
+/* Custom container styles - matches Fabian (max-w-main 46rem) */
 .container {
   margin-left: auto;
   margin-right: auto;
   padding-left: 28px;
   padding-right: 28px;
-  max-width: 860px;
+  max-width: 46rem;
 }
 
 @media (min-width: 640px) {
@@ -142,4 +142,94 @@
     padding-left: 24px;
     padding-right: 24px;
   }
+}
+
+/* cmdk styles - Command menu */
+[cmdk-overlay] {
+  @apply bg-neutral-950/40;
+  @apply dark:bg-black/40;
+  @apply fixed left-0 top-0;
+  @apply h-full w-full;
+  @apply z-20;
+}
+
+[cmdk-dialog] {
+  @apply max-w-xl;
+  @apply w-full;
+  @apply fixed left-1/2 top-[15%];
+  @apply flex items-start justify-center;
+  @apply -translate-x-1/2;
+  @apply z-20;
+  @apply px-4;
+}
+
+[cmdk-root] {
+  @apply bg-popover/95;
+  @apply backdrop-blur-sm;
+  @apply relative;
+  @apply border;
+  @apply rounded-xl;
+  @apply w-full;
+  @apply shadow-lg;
+}
+
+[cmdk-input] {
+  @apply appearance-none;
+  @apply text-popover-foreground;
+  @apply placeholder:text-muted-foreground;
+  @apply bg-transparent;
+  @apply w-full;
+  @apply px-5 pt-5 pb-1;
+  @apply outline-none;
+  @apply text-lg;
+}
+
+[cmdk-list] {
+  @apply px-2 py-2;
+  @apply transition-all;
+  @apply overflow-visible;
+}
+
+[cmdk-item] {
+  @apply px-3 py-2;
+  @apply rounded-md;
+  @apply cursor-pointer;
+  @apply text-foreground;
+  @apply transition-colors;
+}
+
+[cmdk-item] > div {
+  @apply flex items-center gap-2;
+}
+
+[cmdk-item]:hover {
+  @apply bg-neutral-200 dark:bg-neutral-700/50;
+  @apply text-foreground;
+}
+
+[cmdk-empty] {
+  @apply px-3 py-3;
+  @apply text-sm font-medium text-muted-foreground;
+}
+
+[cmdk-separator] {
+  @apply border-b;
+  @apply my-2;
+}
+
+[cmdk-group-heading] {
+  @apply px-3 pb-2 pt-4;
+  @apply text-xs font-medium text-muted-foreground;
+  @apply tracking-wider;
+}
+
+[cmdk-loading] {
+  @apply absolute;
+  @apply top-3;
+  @apply right-3;
+  @apply text-muted-foreground;
+}
+
+[cmdk-loading] div {
+  @apply flex;
 }

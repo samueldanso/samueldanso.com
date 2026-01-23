@@ -5,7 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { readingTime } from "reading-time-estimator";
 
-interface BlogPage {
+interface PostPage {
   params: {
     slug: string;
   };
@@ -21,7 +21,7 @@ function formatDate(date: Date): string {
     .toUpperCase();
 }
 
-export function generateMetadata({ params }: BlogPage): Metadata {
+export function generateMetadata({ params }: PostPage): Metadata {
   const post = allPosts.find((post) => post._meta.path === params.slug);
 
   if (!post) {
@@ -38,7 +38,7 @@ export function generateMetadata({ params }: BlogPage): Metadata {
   };
 }
 
-export default function BlogPage({ params }: BlogPage) {
+export default function PostPage({ params }: PostPage) {
   const post = allPosts.find((post) => post._meta.path === params.slug);
   if (!post) return notFound();
 
@@ -50,10 +50,10 @@ export default function BlogPage({ params }: BlogPage) {
       <section className="pt-[180px] pb-[60px]">
         <div className="mb-6">
           <Link
-            href="/blog"
+            href="/posts"
             className="text-muted-foreground font-medium text-sm no-underline hover:underline"
           >
-            <span className="text-muted-foreground/60">~</span> Blog
+            <span className="text-muted-foreground/60">~</span> Posts
           </Link>
         </div>
         <h1 className="font-display text-2xl mb-1">{post.title}</h1>
@@ -68,13 +68,13 @@ export default function BlogPage({ params }: BlogPage) {
         {post.tags && post.tags.length > 0 && (
           <div className="flex flex-wrap gap-3 mt-6">
             {post.tags.map((tag) => (
-              <Link
+          <Link
                 key={tag}
-                href={`/blog?tag=${tag}`}
+                href={`/posts?tag=${tag}`}
                 className="text-muted-foreground text-sm font-mono no-underline hover:underline"
-              >
+          >
                 #{tag}
-              </Link>
+          </Link>
             ))}
           </div>
         )}

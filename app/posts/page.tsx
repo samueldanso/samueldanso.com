@@ -11,7 +11,7 @@ function formatDate(date: Date): string {
     .toUpperCase();
 }
 
-export default function BlogPage() {
+export default function PostsPage() {
   // Sort posts by date (newest first)
   const sortedPosts = allPosts.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
@@ -29,8 +29,8 @@ export default function BlogPage() {
             <span className="text-muted-foreground/60">~</span> Home
           </Link>
         </div>
-        <h1 className="font-display text-2xl mb-1">Blog Posts</h1>
-        <p className="text-muted-foreground">Collection of blog posts.</p>
+        <h1 className="font-display text-2xl mb-1">Posts</h1>
+        <p className="text-muted-foreground">Collection of posts.</p>
       </section>
 
       {/* List Section */}
@@ -38,7 +38,7 @@ export default function BlogPage() {
         {sortedPosts.map((post) => (
           <li key={post._meta.path} className="flex items-center gap-2 group">
             <Link
-              href={`/blog/${post._meta.path}`}
+              href={`/posts/${post._meta.path}`}
               className="text-foreground font-medium no-underline overflow-hidden text-ellipsis whitespace-nowrap flex-shrink-[1] transition-all duration-200 group-hover:pl-1"
             >
               {post.title}
@@ -52,7 +52,7 @@ export default function BlogPage() {
 
         {sortedPosts.length === 0 && (
           <li className="text-center py-12 text-muted-foreground">
-            <p>No blog posts yet. Check back soon!</p>
+            <p>No posts yet. Check back soon!</p>
           </li>
         )}
       </ul>

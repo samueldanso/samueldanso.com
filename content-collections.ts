@@ -39,6 +39,7 @@ const projects = defineCollection({
     status: z.string(),
     sort: z.number(),
     tech: z.array(z.string()).optional(),
+    date: z.string().optional(),
   }),
   transform: async (document, { collection, cache }) => {
     const mdx = await compileMDX({ cache }, document);
@@ -61,10 +62,12 @@ const work = defineCollection({
   directory: "work-experience",
   include: "**/*.md",
   schema: z.object({
-    title: z.string(),
-    href: z.string(),
-    status: z.enum(["freelancing", "contract"]).optional(),
-    buttonText: z.string(),
+    year: z.string(),
+    isPresent: z.boolean().optional(),
+    role: z.string(),
+    company: z.string(),
+    companyHref: z.string().optional(),
+    location: z.string(),
   }),
 });
 

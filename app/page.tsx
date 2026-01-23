@@ -8,18 +8,26 @@ import { WorkExperience } from "@/components/sections/work-experience";
 
 export default function Home() {
   return (
-    <section className="items-center gap-8 container py-3 md:py-4 space-y-12 mt-6">
-      <ProfileHeader
-        name="Samuel Danso"
-        title="Full-Stack Engineer"
-        isActive={true}
-      />
-      <ContactMe />
-      <AboutMe />
+    <section className="container space-y-12 py-3 sm:space-y-16 md:py-4">
+      {/* Profile header + about - flows naturally, then two-column sections start */}
+      <div className="space-y-6 sm:space-y-8">
+        <ProfileHeader
+          name="Samuel Danso"
+          title="Full-Stack Engineer — AI & Web3"
+          isActive={false}
+        />
+        <AboutMe />
+      </div>
+
       <WorkExperience />
       <Projects />
       <RecentPosts />
-      <OrbitingAnimation />
+
+
+      <div className="pt-8 sm:pt-12">
+        <OrbitingAnimation />
+      </div>
+      <ContactMe />
     </section>
   );
 }

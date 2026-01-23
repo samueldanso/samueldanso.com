@@ -1,7 +1,7 @@
-import { ShellSection } from "@/components/ui/shell";
 import { allPosts } from "content-collections";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { SectionGrid, SectionTitle, SectionContent } from "@/components/ui/section-grid";
 
 function formatDate(date: Date): string {
   return Intl.DateTimeFormat("en-US", {
@@ -23,34 +23,39 @@ export function RecentPosts() {
   }
 
   return (
-    <ShellSection index={5} title="Recent Posts">
-      <div className="space-y-3">
-        {recentPosts.map((post) => (
-          <Link
-            key={post._meta.path}
-            href={`/blog/${post._meta.path}`}
-            className="block group"
-          >
-            <div className="flex items-start gap-3">
-              <time
-                dateTime={post.date}
-                className="text-muted-foreground text-sm font-normal flex-shrink-0 min-w-[80px]"
-              >
+    <SectionGrid>
+      <SectionTitle>Posts</SectionTitle>
+      <SectionContent />
+      {recentPosts.map((post, index) => (
+        <div key={post._meta.path} className="contents">
+          <dt className={`col-span-12 sm:col-span-4 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}>
+            <h3 className="text-muted-foreground text-[15px] font-normal">
+              <time dateTime={post.date}>
                 {formatDate(new Date(post.date))}
               </time>
-              <span className="text-foreground font-medium text-[15px] group-hover:underline transition-all duration-200">
-                {post.title}
-              </span>
-            </div>
+            </h3>
+          </dt>
+          <dd className={`col-span-12 sm:col-span-8 ${index > 0 ? "border-none pt-0" : ""}`}>
+            <Link
+              href={`/posts/${post._meta.path}`}
+              className="text-base font-medium text-foreground underline decoration-border hover:decoration-foreground/40 transition-colors"
+            >
+              {post.title}
+            </Link>
+          </dd>
+        </div>
+      ))}
+      <div className="contents">
+        <dt className="col-span-12 sm:col-span-4 mt-4 border-none pt-0 sm:mt-0"></dt>
+        <dd className="col-span-12 sm:col-span-8 border-none pt-0">
+          <Link
+            href="/posts"
+            className="text-foreground underline decoration-border hover:decoration-foreground/40 transition-colors text-base font-medium inline-flex items-center gap-1"
+          >
+            All posts <ArrowRight className="size-4" />
           </Link>
-        ))}
-        <Link
-          href="/blog"
-          className="text-foreground underline hover:no-underline transition-all duration-200 text-[15px] font-medium inline-flex items-center gap-1 mt-2"
-        >
-          All posts <ArrowRight className="size-4" />
-        </Link>
+        </dd>
       </div>
-    </ShellSection>
+    </SectionGrid>
   );
 }

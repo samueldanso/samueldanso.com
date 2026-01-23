@@ -6,36 +6,32 @@ interface ProfileHeaderProps {
   isActive: boolean;
 }
 
+/** Josh-style: image (96px) + name/title, left-aligned with About section. Inter font, natural spacing. */
 export function ProfileHeader({ name, title, isActive }: ProfileHeaderProps) {
   return (
-    <header className="top-0 z-50 w-full animate-slide-from-down-and-fade-1">
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-4">
-          <div className="relative h-16 w-16 flex-shrink-0">
-            <Image
-              alt="Profile"
-              className="rounded-full"
-              fill
-              src="/profile-icon.png"
-              style={{ objectFit: "cover", objectPosition: "center 30%" }}
-            />
-          </div>
-          <div className="flex flex-col gap-1 min-w-0 flex-1">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-foreground">
-              {name}
-            </h1>
-            <p className="text-muted-foreground text-sm font-normal">{title}</p>
-          </div>
-        </div>
-
-        {/* Status */}
+    <header className="flex items-center gap-6 font-sans">
+      <div className="relative size-16 flex-shrink-0">
+        <Image
+          alt="Profile"
+          className="rounded-full object-cover object-[center_30%]"
+          fill
+          src="/profile-icon.png"
+          sizes="96px"
+          priority
+        />
+      </div>
+      <div className="flex min-w-0 flex-1 flex-col gap-1">
+        <h1 className="text-xl font-medium leading-tight tracking-tight text-foreground">
+          {name}
+        </h1>
+        <p className="text-[15px] font-normal text-muted-foreground">{title}</p>
         {isActive && (
-          <div className="flex items-center">
-            <div className="absolute flex size-4">
-              <span className="absolute top-[4.5px] size-2 animate-ping rounded-full bg-green-500 opacity-75"></span>
-              <span className="relative top-[4.5px] size-2 rounded-full bg-green-500"></span>
-            </div>
-            <span className="prose prose-neutral ml-4 dark:prose-invert text-[14px]">
+          <div className="mt-1 flex items-center gap-2">
+            <span
+              className="size-2 shrink-0 rounded-full bg-primary"
+              aria-hidden
+            />
+            <span className="text-sm text-muted-foreground">
               available for work
             </span>
           </div>
