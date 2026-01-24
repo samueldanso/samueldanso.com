@@ -2,7 +2,8 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Samuel Danso | Full-Stack Engineer — AI & Web3",
-  description: "Full-Stack Engineer.",
+  description:
+    "I'm a full-stack engineer focused on building AI-powered, web3, and consumer products with care for how they work and feel—blending engineering, product thinking, and design to ship experiences that solve real problems.",
   url: "https://samueldanso.com",
   ogImage: "https://samueldanso.com/opengraph-image.png",
   links: {

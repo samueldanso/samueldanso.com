@@ -1,7 +1,11 @@
-import { allPosts } from "content-collections";
+import { allWritings } from "content-collections";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { SectionGrid, SectionTitle, SectionContent } from "@/components/ui/section-grid";
+import {
+  SectionGrid,
+  SectionTitle,
+  SectionContent,
+} from "@/components/ui/section-grid";
 
 function formatDate(date: Date): string {
   return Intl.DateTimeFormat("en-US", {
@@ -11,9 +15,9 @@ function formatDate(date: Date): string {
   }).format(date);
 }
 
-export function RecentPosts() {
+export function Writing() {
   // Sort posts by date (newest first) and take only recent (first 4-5)
-  const sortedPosts = [...allPosts].sort((a, b) => {
+  const sortedPosts = [...allWritings].sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
   const recentPosts = sortedPosts.slice(0, 5);
@@ -24,20 +28,24 @@ export function RecentPosts() {
 
   return (
     <SectionGrid>
-      <SectionTitle>Posts</SectionTitle>
+      <SectionTitle>Writing</SectionTitle>
       <SectionContent />
       {recentPosts.map((post, index) => (
         <div key={post._meta.path} className="contents">
-          <dt className={`col-span-12 sm:col-span-4 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}>
+          <dt
+            className={`col-span-12 sm:col-span-4 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}
+          >
             <h3 className="text-muted-foreground text-[15px] font-normal">
               <time dateTime={post.date}>
                 {formatDate(new Date(post.date))}
               </time>
             </h3>
           </dt>
-          <dd className={`col-span-12 sm:col-span-8 ${index > 0 ? "border-none pt-0" : ""}`}>
+          <dd
+            className={`col-span-12 sm:col-span-8 ${index > 0 ? "border-none pt-0" : ""}`}
+          >
             <Link
-              href={`/posts/${post._meta.path}`}
+              href={`/writing/${post._meta.path}`}
               className="text-base font-medium text-foreground underline decoration-border hover:decoration-foreground/40 transition-colors"
             >
               {post.title}
@@ -49,10 +57,10 @@ export function RecentPosts() {
         <dt className="col-span-12 sm:col-span-4 mt-4 border-none pt-0 sm:mt-0"></dt>
         <dd className="col-span-12 sm:col-span-8 border-none pt-0">
           <Link
-            href="/posts"
+            href="/writing"
             className="text-foreground underline decoration-border hover:decoration-foreground/40 transition-colors text-base font-medium inline-flex items-center gap-1"
           >
-            All posts <ArrowRight className="size-4" />
+            All writing <ArrowRight className="size-4" />
           </Link>
         </dd>
       </div>

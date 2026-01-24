@@ -1,9 +1,9 @@
-import { allProjects } from "content-collections";
+import { allWorks } from "content-collections";
 import Link from "next/link";
 
-export default function ProjectsPage() {
+export default function WorkPage() {
   // Sort projects by the sort field
-  const sortedProjects = allProjects.sort((a, b) => a.sort - b.sort);
+  const sortedProjects = allWorks.sort((a, b) => a.sort - b.sort);
 
   return (
     <div className="container">
@@ -17,8 +17,8 @@ export default function ProjectsPage() {
             <span className="text-muted-foreground/60">~</span> Home
           </Link>
         </div>
-        <h1 className="font-display text-2xl mb-1">Projects</h1>
-        <p className="text-muted-foreground">Collection of projects.</p>
+        <h1 className="font-display text-2xl mb-1">Selected Work</h1>
+        <p className="text-muted-foreground">Collection of work.</p>
       </section>
 
       {/* List Section */}
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
             className="flex items-center gap-2 group"
           >
             <Link
-              href={`/projects/${project._meta.path}`}
+              href={`/work/${project._meta.path}`}
               className="text-foreground font-medium no-underline overflow-hidden text-ellipsis whitespace-nowrap flex-shrink-[1] transition-all duration-200 group-hover:pl-1"
             >
               {project.title}
@@ -45,7 +45,7 @@ export default function ProjectsPage() {
 
         {sortedProjects.length === 0 && (
           <li className="text-center py-12 text-muted-foreground">
-            <p>No projects yet. Check back soon!</p>
+            <p>No work yet. Check back soon!</p>
           </li>
         )}
       </ul>

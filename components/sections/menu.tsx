@@ -5,11 +5,27 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Command } from "cmdk";
-import { Home, CommandIcon, FileText, FolderKanban, Mail, Twitter, Loader2, Moon, Sun, Github, Linkedin } from "lucide-react";
+import {
+  Home,
+  CommandIcon,
+  FileText,
+  FolderKanban,
+  Mail,
+  Twitter,
+  Loader2,
+  Moon,
+  Sun,
+  Github,
+  Linkedin,
+} from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
-export function Nav() {
+export function Menu() {
   const { theme, setTheme } = useTheme();
   const router = useRouter();
   const pathname = usePathname();
@@ -49,8 +65,8 @@ export function Nav() {
     if (!mounted) return;
 
     // Prefetch routes
-    router.prefetch("/posts");
-    router.prefetch("/projects");
+    router.prefetch("/writing");
+    router.prefetch("/work");
 
     // Toggle the menu when ⌘K or Ctrl+K is pressed
     const down = (e: KeyboardEvent) => {
@@ -90,16 +106,16 @@ export function Nav() {
                 <span>Home</span>
               </div>
             </Command.Item>
-            <Command.Item onSelect={() => navigate("/posts")}>
+            <Command.Item onSelect={() => navigate("/writing")}>
               <div className="flex items-center gap-2">
                 <FileText size={16} />
-                <span>Posts</span>
+                <span>Writing</span>
               </div>
             </Command.Item>
-            <Command.Item onSelect={() => navigate("/projects")}>
+            <Command.Item onSelect={() => navigate("/work")}>
               <div className="flex items-center gap-2">
                 <FolderKanban size={16} />
-                <span>Projects</span>
+                <span>Work</span>
               </div>
             </Command.Item>
           </Command.Group>

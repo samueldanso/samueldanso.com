@@ -1,24 +1,24 @@
 import { MDX } from "@/components/mdx";
-import { allProjects } from "content-collections";
+import { allWorks } from "content-collections";
 import { Icons } from "@/components/icons";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-interface ProjectPage {
+interface WorkPage {
   params: {
     slug: string;
   };
 }
 
-export function generateMetadata({ params }: ProjectPage): Metadata {
-  const project = allProjects.find(
+export function generateMetadata({ params }: WorkPage): Metadata {
+  const project = allWorks.find(
     (project) => project._meta.path === params.slug,
   );
 
   if (!project) {
     return {
-      title: "Project Not Found",
+      title: "Work Not Found",
     };
   }
 
@@ -30,8 +30,8 @@ export function generateMetadata({ params }: ProjectPage): Metadata {
   };
 }
 
-export default function ProjectPage({ params }: ProjectPage) {
-  const project = allProjects.find(
+export default function WorkPage({ params }: WorkPage) {
+  const project = allWorks.find(
     (project) => project._meta.path === params.slug,
   );
   if (!project) return notFound();
@@ -42,10 +42,10 @@ export default function ProjectPage({ params }: ProjectPage) {
       <section className="pt-[180px] pb-[60px]">
         <div className="mb-6">
           <Link
-            href="/projects"
+            href="/work"
             className="text-muted-foreground font-medium text-sm no-underline hover:underline"
           >
-            <span className="text-muted-foreground/60">~</span> Projects
+            <span className="text-muted-foreground/60">~</span> Work
           </Link>
         </div>
         <h1 className="font-display text-2xl mb-1">{project.title}</h1>
@@ -93,7 +93,7 @@ export default function ProjectPage({ params }: ProjectPage) {
           <div className="flex justify-between items-center">
             {project.prev && (
               <Link
-                href={`/projects/${project.prev._meta.path}`}
+                href={`/work/${project.prev._meta.path}`}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 ← {project.prev.title}
@@ -101,7 +101,7 @@ export default function ProjectPage({ params }: ProjectPage) {
             )}
             {project.next && (
               <Link
-                href={`/projects/${project.next._meta.path}`}
+                href={`/work/${project.next._meta.path}`}
                 className="text-muted-foreground hover:text-foreground transition-colors ml-auto"
               >
                 {project.next.title} →

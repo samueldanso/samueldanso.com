@@ -4,7 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { ThemeProvider } from "next-themes";
 import { ImageViewer } from "@/components/shells/image-viewer";
-import { Nav } from "@/components/sections/nav";
+import { Menu } from "@/components/sections/menu";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,16 +32,10 @@ export const metadata: Metadata = {
     "Software Engineer",
     "AI Development",
     "AI Developer",
-    "AI Engineer",
     "AI Product",
-    "AI Product Engineer",
-    "AI Product Developer",
     "Web3 Development",
     "Web3 Developer",
-    "Web3 Engineer",
     "Web3 Product",
-    "Web3 Product Engineer",
-    "Web3 Product Developer",
     "samueldanso",
     "samueldanso.com",
     "samueldanso portfolio",
@@ -106,8 +100,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Nav />
-          <main className="mx-auto w-full mb-16 pt-16 pb-6 sm:pt-20 sm:pb-8">{children}</main>
+          <Menu />
+          <main className="mx-auto w-full mb-16 pt-16 pb-6 sm:pt-20 sm:pb-8">
+            {children}
+          </main>
           <ImageViewer />
         </ThemeProvider>
       </body>

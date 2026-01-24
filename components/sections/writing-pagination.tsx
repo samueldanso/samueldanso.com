@@ -1,14 +1,14 @@
 "use client";
 
-import { type Post } from "content-collections";
+import { type Writing as WritingType } from "content-collections";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface BlogPagination {
-  posts: Array<Post>;
+interface WritingPagination {
+  posts: Array<WritingType>;
 }
 
-export function BlogPagination({ posts }: BlogPagination) {
+export function WritingPagination({ posts }: WritingPagination) {
   const currentSlug = usePathname().split("/").pop();
   const currentIndex = posts.findIndex(
     (post) => post._meta.path === currentSlug,
@@ -21,7 +21,7 @@ export function BlogPagination({ posts }: BlogPagination) {
       {previous && (
         <Link
           className="flex w-full flex-col gap-1 text-left"
-          href={`/${previous._meta.path}`}
+          href={`/writing/${previous._meta.path}`}
         >
           <span className="mb-1 text-muted-foreground">Previous</span>
           <span className="font-medium ">{previous.title}</span>
@@ -31,7 +31,7 @@ export function BlogPagination({ posts }: BlogPagination) {
       {next && (
         <Link
           className="flex w-full flex-col gap-1 text-right"
-          href={`/${next._meta.path}`}
+          href={`/writing/${next._meta.path}`}
         >
           <span className="mb-1 text-muted-foreground">Next</span>
           <span className="font-medium ">{next.title}</span>

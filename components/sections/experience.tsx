@@ -1,10 +1,14 @@
-import { allWorks } from "content-collections";
+import { allExperiences } from "content-collections";
 import { Badge } from "@/components/ui/badge";
-import { SectionGrid, SectionTitle, SectionContent } from "@/components/ui/section-grid";
+import {
+  SectionGrid,
+  SectionTitle,
+  SectionContent,
+} from "@/components/ui/section-grid";
 import { ArrowUpRight } from "lucide-react";
 
-export function WorkExperience() {
-  const experiences = [...allWorks].sort((a, b) => {
+export function Experience() {
+  const experiences = [...allExperiences].sort((a, b) => {
     const ay = Number(a.year);
     const by = Number(b.year);
     if (Number.isFinite(ay) && Number.isFinite(by)) return by - ay;
@@ -16,7 +20,10 @@ export function WorkExperience() {
       <SectionTitle>Experience</SectionTitle>
       <SectionContent />
       {experiences.map((experience, index) => (
-        <div key={`${experience.year}-${experience.company}`} className="contents">
+        <div
+          key={`${experience.year}-${experience.company}`}
+          className="contents"
+        >
           <dt
             className={`col-span-12 sm:col-span-4 ${
               index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""

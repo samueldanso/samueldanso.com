@@ -1,13 +1,37 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { SectionGrid, SectionTitle, SectionContent } from "@/components/ui/section-grid";
+import {
+  SectionGrid,
+  SectionTitle,
+  SectionContent,
+} from "@/components/ui/section-grid";
 
 const contactItems = [
-  { href: siteConfig.links.email, label: "Get in touch", subtitle: "Send me an email", external: false },
-  { href: siteConfig.links.linkedin, label: "LinkedIn", subtitle: "Connect with me", external: true },
-  { href: siteConfig.links.github, label: "GitHub", subtitle: "See my work", external: true },
-  { href: siteConfig.links.twitter, label: "X", subtitle: "Follow me", external: true },
+  {
+    href: siteConfig.links.email,
+    label: "Get in touch",
+    subtitle: "Send me an email",
+    external: false,
+  },
+  {
+    href: siteConfig.links.linkedin,
+    label: "LinkedIn",
+    subtitle: "Connect with me",
+    external: true,
+  },
+  {
+    href: siteConfig.links.github,
+    label: "GitHub",
+    subtitle: "See my work",
+    external: true,
+  },
+  {
+    href: siteConfig.links.twitter,
+    label: "X",
+    subtitle: "Follow me",
+    external: true,
+  },
 ];
 
 export function ContactMe() {
@@ -23,13 +47,18 @@ export function ContactMe() {
               <div key={label}>
                 <Link
                   href={href}
-                  {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+                  {...(external && {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
                   className="inline-flex items-center gap-0.5 font-medium text-foreground underline decoration-[1.5px] underline-offset-[2.5px] decoration-border hover:decoration-foreground/40 transition-colors"
                 >
                   {label}
                   <ArrowUpRight size={16} className="inline shrink-0" />
                 </Link>
-                <p className="pt-1 text-[15px] text-muted-foreground">{subtitle}</p>
+                <p className="pt-1 text-[15px] text-muted-foreground">
+                  {subtitle}
+                </p>
               </div>
             ))}
           </div>

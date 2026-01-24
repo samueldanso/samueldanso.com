@@ -1,28 +1,36 @@
-import { allProjects } from "content-collections";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { allWorks } from "content-collections";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { SectionGrid, SectionTitle, SectionContent } from "@/components/ui/section-grid";
+import {
+  SectionGrid,
+  SectionTitle,
+  SectionContent,
+} from "@/components/ui/section-grid";
 
-export function Projects() {
+export function SelectedWork() {
   // Sort projects by the sort field and take only featured (first 5-6)
-  const sortedProjects = [...allProjects].sort((a, b) => a.sort - b.sort);
-  const featuredProjects = sortedProjects.slice(0, 6);
+  const sortedProjects = [...allWorks].sort((a, b) => a.sort - b.sort);
+  const featuredProjects = sortedProjects.slice(0, 5);
 
   // Generate random dates for now - user will update later
   const dates = ["2025", "2024", "2023", "2022", "2021", "2020"];
 
   return (
     <SectionGrid>
-      <SectionTitle>Projects</SectionTitle>
+      <SectionTitle>Selected Work</SectionTitle>
       <SectionContent />
       {featuredProjects.map((project, index) => (
         <div key={project._meta.path} className="contents">
-          <dt className={`col-span-12 sm:col-span-4 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}>
+          <dt
+            className={`col-span-12 sm:col-span-4 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}
+          >
             <h3 className="text-muted-foreground text-[15px] font-normal">
               {project.date || dates[index] || "2024"}
             </h3>
           </dt>
-          <dd className={`col-span-12 sm:col-span-8 ${index > 0 ? "border-none pt-0" : ""}`}>
+          <dd
+            className={`col-span-12 sm:col-span-8 ${index > 0 ? "border-none pt-0" : ""}`}
+          >
             <div>
               <div className="mb-1">
                 <a
@@ -32,7 +40,7 @@ export function Projects() {
                   className="text-foreground font-medium underline decoration-[1.5px] underline-offset-[2.5px] decoration-border hover:decoration-foreground/40 transition-colors inline-flex items-center gap-0.5 break-words"
                 >
                   {project.title}
-                  <ArrowUpRight
+                  <ArrowRight
                     size={16}
                     className="inline ml-0.5 mb-0.5 decoration-transparent text-muted-foreground"
                   />
@@ -50,10 +58,10 @@ export function Projects() {
           <dt className="col-span-12 sm:col-span-4 mt-4 border-none pt-0 sm:mt-0"></dt>
           <dd className="col-span-12 sm:col-span-8 border-none pt-0">
             <Link
-              href="/projects"
+              href="/work"
               className="text-foreground underline decoration-border hover:decoration-foreground/40 transition-colors text-base font-medium inline-flex items-center gap-1"
             >
-              All projects <ArrowRight className="size-4" />
+              View all <ArrowRight className="size-4" />
             </Link>
           </dd>
         </div>

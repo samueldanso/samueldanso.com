@@ -2,9 +2,9 @@ import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMDX } from "@content-collections/mdx";
 import { z } from "zod";
 
-const posts = defineCollection({
-  name: "posts",
-  directory: "posts",
+const writing = defineCollection({
+  name: "writing",
+  directory: "writing",
   include: "**/*.mdx",
   schema: z.object({
     title: z.string(),
@@ -28,9 +28,9 @@ const posts = defineCollection({
   },
 });
 
-const projects = defineCollection({
-  name: "projects",
-  directory: "projects",
+const work = defineCollection({
+  name: "work",
+  directory: "work",
   include: "**/*.md",
   schema: z.object({
     title: z.string(),
@@ -57,9 +57,9 @@ const projects = defineCollection({
   },
 });
 
-const work = defineCollection({
-  name: "work",
-  directory: "work-experience",
+const experience = defineCollection({
+  name: "experience",
+  directory: "experience",
   include: "**/*.md",
   schema: z.object({
     year: z.string(),
@@ -71,6 +71,17 @@ const work = defineCollection({
   }),
 });
 
+const awards = defineCollection({
+  name: "awards",
+  directory: "awards",
+  include: "**/*.md",
+  schema: z.object({
+    year: z.string(),
+    title: z.string(),
+    description: z.string().optional(),
+  }),
+});
+
 export default defineConfig({
-  collections: [posts, projects, work],
+  collections: [writing, work, experience, awards],
 });

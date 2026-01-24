@@ -1,28 +1,20 @@
-import { AboutMe } from "@/components/sections/about-me";
+import { Hero } from "@/components/sections/hero";
+import { Experience } from "@/components/sections/experience";
+import { SelectedWork } from "@/components/sections/selected-work";
+import { Awards } from "@/components/sections/awards";
+import { Writing } from "@/components/sections/writing";
 import { ContactMe } from "@/components/sections/contact-me";
 import { OrbitingAnimation } from "@/components/sections/orbiting-animation";
-import { ProfileHeader } from "@/components/sections/profile-header";
-import { Projects } from "@/components/sections/projects";
-import { RecentPosts } from "@/components/sections/recent-posts";
-import { WorkExperience } from "@/components/sections/work-experience";
 
 export default function Home() {
   return (
     <section className="container space-y-12 py-3 sm:space-y-16 md:py-4">
-      {/* Profile header + about - flows naturally, then two-column sections start */}
-      <div className="space-y-6 sm:space-y-8">
-        <ProfileHeader
-          name="Samuel Danso"
-          title="Full-Stack Engineer — AI & Web3"
-          isActive={false}
-        />
-        <AboutMe />
-      </div>
+      <Hero name="Samuel Danso" title="Full-stack Engineer" isActive={false} />
 
-      <WorkExperience />
-      <Projects />
-      <RecentPosts />
-
+      <Experience />
+      <SelectedWork />
+      <Awards />
+      <Writing />
 
       <div className="pt-8 sm:pt-12">
         <OrbitingAnimation />

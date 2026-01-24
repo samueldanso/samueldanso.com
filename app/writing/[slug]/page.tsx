@@ -1,11 +1,11 @@
 import { MDX } from "@/components/mdx";
-import { allPosts } from "content-collections";
+import { allWritings } from "content-collections";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { readingTime } from "reading-time-estimator";
 
-interface PostPage {
+interface WritingPage {
   params: {
     slug: string;
   };
@@ -21,12 +21,12 @@ function formatDate(date: Date): string {
     .toUpperCase();
 }
 
-export function generateMetadata({ params }: PostPage): Metadata {
-  const post = allPosts.find((post) => post._meta.path === params.slug);
+export function generateMetadata({ params }: WritingPage): Metadata {
+  const post = allWritings.find((post) => post._meta.path === params.slug);
 
   if (!post) {
     return {
-      title: "Post Not Found",
+      title: "Writing Not Found",
     };
   }
 
@@ -38,8 +38,8 @@ export function generateMetadata({ params }: PostPage): Metadata {
   };
 }
 
-export default function PostPage({ params }: PostPage) {
-  const post = allPosts.find((post) => post._meta.path === params.slug);
+export default function WritingPage({ params }: WritingPage) {
+  const post = allWritings.find((post) => post._meta.path === params.slug);
   if (!post) return notFound();
 
   const readingTimeMinutes = readingTime(post.content).minutes;
@@ -50,10 +50,10 @@ export default function PostPage({ params }: PostPage) {
       <section className="pt-[180px] pb-[60px]">
         <div className="mb-6">
           <Link
-            href="/posts"
+            href="/writing"
             className="text-muted-foreground font-medium text-sm no-underline hover:underline"
           >
-            <span className="text-muted-foreground/60">~</span> Posts
+            <span className="text-muted-foreground/60">~</span> Writing
           </Link>
         </div>
         <h1 className="font-display text-2xl mb-1">{post.title}</h1>
@@ -68,13 +68,13 @@ export default function PostPage({ params }: PostPage) {
         {post.tags && post.tags.length > 0 && (
           <div className="flex flex-wrap gap-3 mt-6">
             {post.tags.map((tag) => (
-          <Link
+              <Link
                 key={tag}
-                href={`/posts?tag=${tag}`}
+                href={`/writing?tag=${tag}`}
                 className="text-muted-foreground text-sm font-mono no-underline hover:underline"
-          >
+              >
                 #{tag}
-          </Link>
+              </Link>
             ))}
           </div>
         )}
