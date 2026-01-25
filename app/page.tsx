@@ -9,7 +9,7 @@ import { OrbitingAnimation } from "@/components/sections/orbiting-animation";
 export default function Home() {
   return (
     <section className="container space-y-12 py-3 sm:space-y-16 md:py-4">
-      <Hero name="Samuel Danso" title="Full-stack Engineer" isActive={false} />
+      <Hero name="Samuel Danso" title="Full-Stack Engineer" isActive={false} />
 
       <Experience />
       <SelectedWork />
