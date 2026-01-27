@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Instrument_Serif, Inter } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/config/site";
 import { ThemeProvider } from "next-themes";
-import { ImageViewer } from "@/components/shells/image-viewer";
 import { Menu } from "@/components/sections/menu";
+import { ImageViewer } from "@/components/shells/image-viewer";
+import { siteConfig } from "@/config/site";
 
 const inter = Inter({
   variable: "--font-inter",

@@ -12,9 +12,6 @@ export function SelectedWork() {
   const sortedProjects = [...allWorks].sort((a, b) => a.sort - b.sort);
   const featuredProjects = sortedProjects.slice(0, 5);
 
-  // Generate random dates for now - user will update later
-  const dates = ["2025", "2024", "2023", "2022", "2021", "2020"];
-
   return (
     <SectionGrid>
       <SectionTitle>Selected Work</SectionTitle>
@@ -24,9 +21,11 @@ export function SelectedWork() {
           <dt
             className={`col-span-12 sm:col-span-4 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}
           >
-            <h3 className="text-muted-foreground text-[15px] font-normal">
-              {project.date || dates[index] || "2024"}
-            </h3>
+            {project.date && (
+              <h3 className="text-muted-foreground text-[15px] font-normal">
+                {project.date}
+              </h3>
+            )}
           </dt>
           <dd
             className={`col-span-12 sm:col-span-8 ${index > 0 ? "border-none pt-0" : ""}`}

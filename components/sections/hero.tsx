@@ -45,7 +45,9 @@ export function Hero({ name, title, isActive }: HeroProps) {
       <section className="font-sans">
         <div className="prose prose-zinc dark:prose-invert text-base text-pretty max-w-none">
           <p>
-          I build AI-powered, web3, and consumer products with care for how they work and feel—blending engineering, product thinking, and design to ship experiences that solve real problems.
+            I build AI-powered, web3, and consumer products with care for how
+            they work and feel—blending engineering, product thinking, and
+            design to ship experiences that solve real problems.
           </p>
           <p className="mt-3">8× international hackathon winner</p>
           <p className="mt-3">

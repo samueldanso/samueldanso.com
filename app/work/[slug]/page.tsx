@@ -1,9 +1,9 @@
-import { MDX } from "@/components/mdx";
 import { allWorks } from "content-collections";
-import { Icons } from "@/components/icons";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Icons } from "@/components/icons";
+import { MDX } from "@/components/mdx";
 
 interface WorkPage {
   params: {

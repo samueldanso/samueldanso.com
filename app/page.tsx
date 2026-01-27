@@ -1,10 +1,10 @@
-import { Hero } from "@/components/sections/hero";
-import { Experience } from "@/components/sections/experience";
-import { SelectedWork } from "@/components/sections/selected-work";
 import { Awards } from "@/components/sections/awards";
-import { Writing } from "@/components/sections/writing";
 import { ContactMe } from "@/components/sections/contact-me";
+import { Experience } from "@/components/sections/experience";
+import { Hero } from "@/components/sections/hero";
 import { OrbitingAnimation } from "@/components/sections/orbiting-animation";
+import { SelectedWork } from "@/components/sections/selected-work";
+import { Writing } from "@/components/sections/writing";
 
 export default function Home() {
   return (

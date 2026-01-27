@@ -3,6 +3,7 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
+import * as THREE from "three";
 
 export function OrbitingAnimation() {
   return (
@@ -20,9 +21,9 @@ export function OrbitingAnimation() {
 }
 
 function PixelatedSphere() {
-  const sphereRef = useRef<any>(null);
+  const sphereRef = useRef<THREE.Points>(null);
 
-  useFrame(({ clock }: { clock: any }) => {
+  useFrame(({ clock }) => {
     if (sphereRef.current) {
       sphereRef.current.rotation.y = clock.getElapsedTime() * 1.2;
       sphereRef.current.rotation.z = clock.getElapsedTime() * 0.7;
@@ -38,9 +39,9 @@ function PixelatedSphere() {
 }
 
 function Birds() {
-  const groupRef = useRef<any>(null);
+  const groupRef = useRef<THREE.Group>(null);
 
-  useFrame(({ clock }: { clock: any }) => {
+  useFrame(({ clock }) => {
     if (!groupRef.current) return;
     const elapsedTime = clock.getElapsedTime();
     groupRef.current.children.forEach(

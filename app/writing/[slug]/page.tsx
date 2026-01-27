@@ -1,9 +1,9 @@
-import { MDX } from "@/components/mdx";
 import { allWritings } from "content-collections";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { readingTime } from "reading-time-estimator";
+import { MDX } from "@/components/mdx";
 
 interface WritingPage {
   params: {
