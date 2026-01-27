@@ -4,6 +4,7 @@ description: 'An intelligent, automated platform that makes stablecoin earnings 
 href: 'https://nectafi.xyz'
 status: 'startup'
 sort: 1
+date: '2026'
 ---
 
 # Necta

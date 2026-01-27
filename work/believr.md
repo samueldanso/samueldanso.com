@@ -4,6 +4,7 @@ description: 'A decentralized social co-investing platform where early believers
 href: 'https://believr.fun'
 status: 'lens spring hackathon 2025'
 sort: 2
+date: '2025'
 ---
 
 # Believr

@@ -4,6 +4,7 @@ description: 'A GenAI NFT platform where artists, collectors, and vibe creators 
 href: 'https://reshape-ai-demo.vercel.app'
 status: 'shapecraft 2025'
 sort: 5
+date: '2022'
 ---
 
 # Reshape

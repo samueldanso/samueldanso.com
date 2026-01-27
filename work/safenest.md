@@ -4,6 +4,7 @@ description: 'A decentralized smart savings platform for parents to save stablec
 href: 'https://github.com/samueldanso/safenest-ethaccra'
 status: 'ethacccra 2024'
 sort: 7
+date: '2020'
 ---
 
 # SafeNest

@@ -4,6 +4,7 @@ description: 'A sound rights platform where music creators protect, license, and
 href: 'https://proof9.xyz'
 status: 'story surrealassets buildathon'
 sort: 3
+date: '2024'
 ---
 
 # Proof9
