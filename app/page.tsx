@@ -5,6 +5,7 @@ import { Hero } from "@/components/sections/hero";
 import { OrbitingAnimation } from "@/components/sections/orbiting-animation";
 import { SelectedWork } from "@/components/sections/selected-work";
 import { Writing } from "@/components/sections/writing";
+import { DashedDivider } from "@/components/ui/grid-patterns";
 
 export default function Home() {
   return (
@@ -16,7 +17,8 @@ export default function Home() {
       <Awards />
       <Writing />
 
-      <div className="pt-8 sm:pt-12">
+      <DashedDivider className="mt-4" />
+      <div className="pt-4 sm:pt-6">
         <OrbitingAnimation />
       </div>
       <ContactMe />

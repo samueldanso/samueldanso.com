@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { Menu } from "@/components/sections/menu";
 import { ImageViewer } from "@/components/shells/image-viewer";
 import { siteConfig } from "@/config/site";
+import { DashedVerticalLines, HorizontalDashedLine } from "@/components/ui/grid-patterns";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -103,9 +104,16 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Menu />
-          <main className="mx-auto w-full mb-16 pt-16 pb-6 sm:pt-20 sm:pb-8">
-            {children}
-          </main>
+          <DashedVerticalLines className="max-w-[44rem] mx-4 sm:mx-auto py-16 sm:py-20">
+            <HorizontalDashedLine />
+            <main className="w-full flex-1 pt-6 pb-10 sm:pt-8 sm:pb-16">
+              {children}
+            </main>
+            <HorizontalDashedLine />
+            <p className="pt-6 text-center text-sm text-muted-foreground">
+              Samuel Danso &copy; {new Date().getFullYear()}
+            </p>
+          </DashedVerticalLines>
           <ImageViewer />
         </ThemeProvider>
       </body>

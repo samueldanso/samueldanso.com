@@ -22,7 +22,7 @@ export function Hero({ name, title, isActive }: HeroProps) {
           />
         </div>
         <div className="flex min-w-0 flex-1 flex-col gap-1">
-          <h1 className="text-xl font-medium leading-tight tracking-tight text-foreground">
+          <h1 className="text-base font font-medium leading-tight tracking-tight text-foreground">
             {name}
           </h1>
           <p className="text-[15px] font-normal text-muted-foreground">

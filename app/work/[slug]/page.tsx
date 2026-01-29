@@ -39,7 +39,7 @@ export default function WorkPage({ params }: WorkPage) {
   return (
     <div className="container">
       {/* Hero Section */}
-      <section className="pt-[180px] pb-[60px]">
+      <section className="pt-4 pb-10 sm:pt-6 sm:pb-14">
         <div className="mb-6">
           <Link
             href="/work"
