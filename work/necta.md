@@ -5,7 +5,7 @@ href: 'https://nectafi.xyz'
 status: 'startup'
 sort: 1
 date: '2025'
-image: '/images/necta-preview.png'
+image: '/images/projects/necta-preview.png'
 source: 'https://github.com/samueldanso/necta'
 stack: ['Next.js', 'TypeScript', 'Solidity', 'Tailwind CSS']
 ---

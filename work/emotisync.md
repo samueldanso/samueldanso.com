@@ -5,7 +5,7 @@ href: 'https://emotisync.xyz'
 status: 'stealth'
 sort: 6
 date: '2024'
-image: '/images/emotisync-preview.png'
+image: '/images/projects/emotisync-preview.png'
 source: 'https://github.com/samueldanso/emotisync'
 stack: ['Next.js', 'TypeScript', 'OpenAI', 'Tailwind CSS']
 ---

@@ -5,7 +5,7 @@ href: 'https://dropsynq.vercel.app/'
 status: 'zora coinathon'
 sort: 4
 date: '2025'
-image: '/images/dropsynq-preview.png'
+image: '/images/projects/dropsynq-preview.png'
 source: 'https://github.com/samueldanso/dropsynq'
 stack: ['Next.js', 'TypeScript', 'Solidity', 'Tailwind CSS']
 ---

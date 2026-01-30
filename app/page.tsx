@@ -2,6 +2,7 @@ import { Awards } from "@/components/sections/awards";
 import { ContactMe } from "@/components/sections/contact-me";
 import { Experience } from "@/components/sections/experience";
 import { Hero } from "@/components/sections/hero";
+import { Highlights } from "@/components/sections/highlights";
 import { OrbitingAnimation } from "@/components/sections/orbiting-animation";
 import { SelectedWork } from "@/components/sections/selected-work";
 import { Writing } from "@/components/sections/writing";
@@ -15,6 +16,7 @@ export default function Home() {
       <Experience />
       <Awards />
       <Writing />
+      <Highlights />
 
       <DashedDivider className="mt-4" />
       <div className="pt-4 sm:pt-6">

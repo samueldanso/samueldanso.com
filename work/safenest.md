@@ -5,7 +5,7 @@ href: 'https://github.com/samueldanso/safenest-ethaccra'
 status: 'ethacccra'
 sort: 7
 date: '2024'
-image: '/images/safenest-preview.png'
+image: '/images/projects/safenest-preview.png'
 source: 'https://github.com/samueldanso/safenest-ethaccra'
 stack: ['Next.js', 'TypeScript', 'Solidity', 'Tailwind CSS']
 ---

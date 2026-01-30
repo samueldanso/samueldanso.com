@@ -5,7 +5,7 @@ href: 'https://proof9.xyz'
 status: 'story surrealassets'
 sort: 3
 date: '2025'
-image: '/images/proof9-preview.png'
+image: '/images/projects/proof9-preview.png'
 source: 'https://github.com/samueldanso/proof9'
 stack: ['Next.js', 'TypeScript', 'Solidity', 'Tailwind CSS']
 ---

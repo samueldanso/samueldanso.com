@@ -5,7 +5,7 @@ href: 'https://reshape-ai-demo.vercel.app'
 status: 'shapecraft'
 sort: 5
 date: '2025'
-image: '/images/reshape-preview.png'
+image: '/images/projects/reshape-preview.png'
 source: 'https://github.com/samueldanso/reshape'
 stack: ['Next.js', 'TypeScript', 'OpenAI', 'Tailwind CSS']
 ---

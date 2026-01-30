@@ -5,7 +5,7 @@ href: 'https://believr.fun'
 status: 'lens spring hackathon'
 sort: 2
 date: '2025'
-image: '/images/believr-preview.png'
+image: '/images/projects/believr-preview.png'
 source: 'https://github.com/samueldanso/believr'
 stack: ['Next.js', 'TypeScript', 'Solidity', 'Tailwind CSS']
 ---
