@@ -5,19 +5,20 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Command } from "cmdk";
+import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  Home,
-  CommandIcon,
-  FileText,
-  FolderKanban,
-  Mail,
-  Twitter,
-  Loader2,
-  Moon,
-  Sun,
-  Github,
-  Linkedin,
-} from "lucide-react";
+  Home01Icon,
+  CommandIcon as CommandHugeIcon,
+  File01Icon,
+  Folder01Icon,
+  Mail01Icon,
+  NewTwitterIcon,
+  Loading03Icon,
+  Moon02Icon,
+  Sun01Icon,
+  Github01Icon,
+  Linkedin01Icon,
+} from "@hugeicons/core-free-icons";
 import { siteConfig } from "@/config/site";
 import {
   Tooltip,
@@ -92,7 +93,11 @@ export function Menu() {
           {loading && (
             <Command.Loading>
               <div className="flex items-center justify-center p-4">
-                <Loader2 className="size-6 animate-spin" />
+                <HugeiconsIcon
+                  icon={Loading03Icon}
+                  size={24}
+                  className="animate-spin"
+                />
               </div>
             </Command.Loading>
           )}
@@ -102,19 +107,19 @@ export function Menu() {
           <Command.Group heading="Pages">
             <Command.Item onSelect={() => navigate("/")}>
               <div className="flex items-center gap-2">
-                <Home size={16} />
+                <HugeiconsIcon icon={Home01Icon} size={16} />
                 <span>Home</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate("/writing")}>
               <div className="flex items-center gap-2">
-                <FileText size={16} />
+                <HugeiconsIcon icon={File01Icon} size={16} />
                 <span>Writing</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate("/work")}>
               <div className="flex items-center gap-2">
-                <FolderKanban size={16} />
+                <HugeiconsIcon icon={Folder01Icon} size={16} />
                 <span>Work</span>
               </div>
             </Command.Item>
@@ -123,7 +128,11 @@ export function Menu() {
           <Command.Group heading="Appearance">
             <Command.Item onSelect={toggleTheme}>
               <div className="flex items-center gap-2">
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                {theme === "dark" ? (
+                  <HugeiconsIcon icon={Sun01Icon} size={16} />
+                ) : (
+                  <HugeiconsIcon icon={Moon02Icon} size={16} />
+                )}
                 <span>Switch theme</span>
               </div>
             </Command.Item>
@@ -132,25 +141,25 @@ export function Menu() {
           <Command.Group heading="Contact">
             <Command.Item onSelect={() => navigate(siteConfig.links.twitter)}>
               <div className="flex items-center gap-2">
-                <Twitter size={16} />
+                <HugeiconsIcon icon={NewTwitterIcon} size={16} />
                 <span>X</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate(siteConfig.links.github)}>
               <div className="flex items-center gap-2">
-                <Github size={16} />
+                <HugeiconsIcon icon={Github01Icon} size={16} />
                 <span>GitHub</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate(siteConfig.links.linkedin)}>
               <div className="flex items-center gap-2">
-                <Linkedin size={16} />
+                <HugeiconsIcon icon={Linkedin01Icon} size={16} />
                 <span>LinkedIn</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate(siteConfig.links.email)}>
               <div className="flex items-center gap-2">
-                <Mail size={16} />
+                <HugeiconsIcon icon={Mail01Icon} size={16} />
                 <span>Email</span>
               </div>
             </Command.Item>
@@ -172,7 +181,7 @@ export function Menu() {
                   className="absolute left-0 flex items-center justify-center size-12 rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:scale-110 active:scale-90 transition-all shadow-sm will-change-transform"
                   aria-label="Go home"
                 >
-                  <Home size={20} />
+                  <HugeiconsIcon icon={Home01Icon} size={20} />
                 </Link>
               </TooltipTrigger>
               <TooltipContent side="right">Home</TooltipContent>
@@ -188,7 +197,7 @@ export function Menu() {
                 }`}
                 aria-label="Open menu"
               >
-                <CommandIcon size={20} />
+                <HugeiconsIcon icon={CommandHugeIcon} size={20} />
               </button>
             </TooltipTrigger>
             <TooltipContent side="right">Menu</TooltipContent>

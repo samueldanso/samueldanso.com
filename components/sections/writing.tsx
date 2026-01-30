@@ -1,5 +1,6 @@
 import { allWritings } from "content-collections";
-import { ArrowRight } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 import Link from "next/link";
 import {
   SectionGrid,
@@ -60,7 +61,7 @@ export function Writing() {
             href="/writing"
             className="text-foreground underline decoration-border hover:decoration-foreground/40 transition-colors text-base font-medium inline-flex items-center gap-1"
           >
-            All writing <ArrowRight className="size-4" />
+            All writing <HugeiconsIcon icon={ArrowRight01Icon} size={16} />
           </Link>
         </dd>
       </div>

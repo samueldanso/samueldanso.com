@@ -7,11 +7,17 @@ interface SectionGridProps {
   hideDivider?: boolean;
 }
 
-export function SectionGrid({ className, children, hideDivider }: SectionGridProps) {
+export function SectionGrid({
+  className,
+  children,
+  hideDivider,
+}: SectionGridProps) {
   return (
     <div className="flex flex-col">
       {!hideDivider && <DashedDivider className="mb-8 sm:mb-10" />}
-      <dl className={cn("grid grid-cols-12 gap-8 gap-y-2 sm:gap-y-4", className)}>
+      <dl
+        className={cn("grid grid-cols-12 gap-8 gap-y-2 sm:gap-y-4", className)}
+      >
         {children}
       </dl>
     </div>
@@ -25,12 +31,7 @@ interface SectionTitleProps {
 
 export function SectionTitle({ className, children }: SectionTitleProps) {
   return (
-    <dt
-      className={cn(
-        "col-span-12 sm:col-span-4 pt-0",
-        className,
-      )}
-    >
+    <dt className={cn("col-span-12 sm:col-span-4 pt-0", className)}>
       <h3 className="font-sans text-base font-medium text-foreground">
         {children}
       </h3>
@@ -45,12 +46,7 @@ interface SectionContentProps {
 
 export function SectionContent({ className, children }: SectionContentProps) {
   return (
-    <dd
-      className={cn(
-        "col-span-12 sm:col-span-8 pt-0",
-        className,
-      )}
-    >
+    <dd className={cn("col-span-12 sm:col-span-8 pt-0", className)}>
       {children}
     </dd>
   );

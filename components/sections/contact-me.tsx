@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 import { siteConfig } from "@/config/site";
 import {
   SectionGrid,
@@ -54,7 +55,11 @@ export function ContactMe() {
                   className="inline-flex items-center gap-0.5 font-medium text-foreground underline decoration-[1.5px] underline-offset-[2.5px] decoration-border hover:decoration-foreground/40 transition-colors"
                 >
                   {label}
-                  <ArrowUpRight size={16} className="inline shrink-0" />
+                  <HugeiconsIcon
+                    icon={ArrowUpRight01Icon}
+                    size={16}
+                    className="inline shrink-0"
+                  />
                 </Link>
                 <p className="pt-1 text-[15px] text-muted-foreground">
                   {subtitle}

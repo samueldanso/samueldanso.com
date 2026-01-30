@@ -5,7 +5,8 @@ import {
   SectionTitle,
   SectionContent,
 } from "@/components/ui/section-grid";
-import { ArrowUpRight } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 
 export function Experience() {
   const experiences = [...allExperiences].sort((a, b) => {
@@ -59,7 +60,8 @@ export function Experience() {
                   className="text-foreground font-medium underline decoration-[1.5px] underline-offset-[2.5px] decoration-border hover:decoration-foreground/40 transition-colors inline-flex items-center gap-0.5 break-words"
                 >
                   {experience.company}
-                  <ArrowUpRight
+                  <HugeiconsIcon
+                    icon={ArrowUpRight01Icon}
                     size={16}
                     className="inline ml-0.5 mb-0.5 decoration-transparent text-muted-foreground"
                   />

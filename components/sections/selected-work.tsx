@@ -1,5 +1,6 @@
 import { allWorks } from "content-collections";
-import { ArrowRight } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 import Link from "next/link";
 import {
   SectionGrid,
@@ -39,7 +40,8 @@ export function SelectedWork() {
                   className="text-foreground font-medium underline decoration-[1.5px] underline-offset-[2.5px] decoration-border hover:decoration-foreground/40 transition-colors inline-flex items-center gap-0.5 break-words"
                 >
                   {project.title}
-                  <ArrowRight
+                  <HugeiconsIcon
+                    icon={ArrowRight01Icon}
                     size={16}
                     className="inline ml-0.5 mb-0.5 decoration-transparent text-muted-foreground"
                   />
@@ -60,7 +62,7 @@ export function SelectedWork() {
               href="/work"
               className="text-foreground underline decoration-border hover:decoration-foreground/40 transition-colors text-base font-medium inline-flex items-center gap-1"
             >
-              View all <ArrowRight className="size-4" />
+              View all <HugeiconsIcon icon={ArrowRight01Icon} size={16} />
             </Link>
           </dd>
         </div>

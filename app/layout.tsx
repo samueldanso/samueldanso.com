@@ -5,7 +5,10 @@ import { ThemeProvider } from "next-themes";
 import { Menu } from "@/components/sections/menu";
 import { ImageViewer } from "@/components/shells/image-viewer";
 import { siteConfig } from "@/config/site";
-import { DashedVerticalLines, HorizontalDashedLine } from "@/components/ui/grid-patterns";
+import {
+  DashedVerticalLines,
+  HorizontalDashedLine,
+} from "@/components/ui/grid-patterns";
 
 const inter = Inter({
   variable: "--font-inter",

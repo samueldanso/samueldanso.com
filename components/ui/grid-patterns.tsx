@@ -17,7 +17,7 @@ export function DottedGrid({ className, children }: GridPatternProps) {
         "[background-image:radial-gradient(var(--dot-color,oklch(0.7_0_0/0.3))_1px,transparent_1px)]",
         "[background-size:var(--dot-spacing,16px)_var(--dot-spacing,16px)]",
         "dark:[background-image:radial-gradient(var(--dot-color,oklch(0.5_0_0/0.25))_1px,transparent_1px)]",
-        className
+        className,
       )}
     >
       {children}
@@ -36,7 +36,7 @@ export function DiagonalHatch({ className }: GridPatternProps) {
         "h-8 w-full",
         "[background-image:repeating-linear-gradient(135deg,var(--hatch-color,oklch(0.85_0_0))_0px,var(--hatch-color,oklch(0.85_0_0))_1px,transparent_1px,transparent_6px)]",
         "dark:[background-image:repeating-linear-gradient(135deg,var(--hatch-color,oklch(0.3_0_0))_0px,var(--hatch-color,oklch(0.3_0_0))_1px,transparent_1px,transparent_6px)]",
-        className
+        className,
       )}
       aria-hidden="true"
     />
@@ -54,7 +54,7 @@ export function VerticalLineSection({ className, children }: GridPatternProps) {
         "relative pl-4 sm:pl-6",
         "before:absolute before:left-0 before:top-0 before:h-full before:w-px",
         "before:bg-border",
-        className
+        className,
       )}
     >
       {children}
@@ -71,7 +71,7 @@ export function DashedBorderBox({ className, children }: GridPatternProps) {
     <div
       className={cn(
         "border border-dashed border-border rounded-lg p-4 sm:p-6",
-        className
+        className,
       )}
     >
       {children}
@@ -91,7 +91,7 @@ export function GridLines({ className, children }: GridPatternProps) {
         "[background-image:linear-gradient(var(--grid-color,oklch(0.92_0_0))_1px,transparent_1px),linear-gradient(90deg,var(--grid-color,oklch(0.92_0_0))_1px,transparent_1px)]",
         "[background-size:var(--grid-size,40px)_var(--grid-size,40px)]",
         "dark:[background-image:linear-gradient(var(--grid-color,oklch(0.25_0_0))_1px,transparent_1px),linear-gradient(90deg,var(--grid-color,oklch(0.25_0_0))_1px,transparent_1px)]",
-        className
+        className,
       )}
     >
       {children}
@@ -111,7 +111,7 @@ export function DottedOverlay({ className }: GridPatternProps) {
         "[background-image:radial-gradient(var(--dot-color,oklch(0.6_0_0/0.15))_1px,transparent_1px)]",
         "[background-size:var(--dot-spacing,20px)_var(--dot-spacing,20px)]",
         "dark:[background-image:radial-gradient(var(--dot-color,oklch(0.5_0_0/0.1))_1px,transparent_1px)]",
-        className
+        className,
       )}
       aria-hidden="true"
     />
@@ -149,7 +149,7 @@ export function HorizontalDashedLine({ className }: GridPatternProps) {
     <div
       className={cn(
         "pointer-events-none w-full border-t border-dashed border-border",
-        className
+        className,
       )}
       aria-hidden="true"
     />
@@ -164,10 +164,7 @@ export function HorizontalDashedLine({ className }: GridPatternProps) {
 export function DashedDivider({ className }: GridPatternProps) {
   return (
     <div
-      className={cn(
-        "flex flex-col gap-2 -mx-[28px] sm:-mx-6",
-        className
-      )}
+      className={cn("flex flex-col gap-2 -mx-[28px] sm:-mx-6", className)}
       aria-hidden="true"
     >
       <div className="w-full border-t border-dashed border-border" />
