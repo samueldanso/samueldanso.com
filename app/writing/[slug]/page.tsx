@@ -56,7 +56,7 @@ export default function WritingPage({ params }: WritingPage) {
             <span className="text-muted-foreground/60">~</span> Writing
           </Link>
         </div>
-        <h1 className="font-display text-2xl mb-1">{post.title}</h1>
+        <h1 className="font-title text-2xl mb-1">{post.title}</h1>
         {post.summary && (
           <p className="text-muted-foreground mb-1">{post.summary}</p>
         )}

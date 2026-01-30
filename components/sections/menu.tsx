@@ -96,7 +96,8 @@ export function Menu() {
                 <HugeiconsIcon
                   icon={Loading03Icon}
                   size={24}
-                  className="animate-spin"
+                  strokeWidth={2}
+                  className="animate-spin text-muted-foreground"
                 />
               </div>
             </Command.Loading>
@@ -106,20 +107,20 @@ export function Menu() {
 
           <Command.Group heading="Pages">
             <Command.Item onSelect={() => navigate("/")}>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Home01Icon} size={16} />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <HugeiconsIcon icon={Home01Icon} size={16} strokeWidth={2} />
                 <span>Home</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate("/writing")}>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={File01Icon} size={16} />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <HugeiconsIcon icon={File01Icon} size={16} strokeWidth={2} />
                 <span>Writing</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate("/work")}>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Folder01Icon} size={16} />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <HugeiconsIcon icon={Folder01Icon} size={16} strokeWidth={2} />
                 <span>Work</span>
               </div>
             </Command.Item>
@@ -127,11 +128,11 @@ export function Menu() {
 
           <Command.Group heading="Appearance">
             <Command.Item onSelect={toggleTheme}>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-muted-foreground">
                 {theme === "dark" ? (
-                  <HugeiconsIcon icon={Sun01Icon} size={16} />
+                  <HugeiconsIcon icon={Sun01Icon} size={16} strokeWidth={2} />
                 ) : (
-                  <HugeiconsIcon icon={Moon02Icon} size={16} />
+                  <HugeiconsIcon icon={Moon02Icon} size={16} strokeWidth={2} />
                 )}
                 <span>Switch theme</span>
               </div>
@@ -140,26 +141,26 @@ export function Menu() {
 
           <Command.Group heading="Contact">
             <Command.Item onSelect={() => navigate(siteConfig.links.twitter)}>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={NewTwitterIcon} size={16} />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <HugeiconsIcon icon={NewTwitterIcon} size={16} strokeWidth={2} />
                 <span>X</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate(siteConfig.links.github)}>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Github01Icon} size={16} />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <HugeiconsIcon icon={Github01Icon} size={16} strokeWidth={2} />
                 <span>GitHub</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate(siteConfig.links.linkedin)}>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Linkedin01Icon} size={16} />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <HugeiconsIcon icon={Linkedin01Icon} size={16} strokeWidth={2} />
                 <span>LinkedIn</span>
               </div>
             </Command.Item>
             <Command.Item onSelect={() => navigate(siteConfig.links.email)}>
-              <div className="flex items-center gap-2">
-                <HugeiconsIcon icon={Mail01Icon} size={16} />
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <HugeiconsIcon icon={Mail01Icon} size={16} strokeWidth={2} />
                 <span>Email</span>
               </div>
             </Command.Item>
@@ -181,7 +182,7 @@ export function Menu() {
                   className="absolute left-0 flex items-center justify-center size-12 rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:scale-110 active:scale-90 transition-all shadow-sm will-change-transform"
                   aria-label="Go home"
                 >
-                  <HugeiconsIcon icon={Home01Icon} size={20} />
+                  <HugeiconsIcon icon={Home01Icon} size={20} strokeWidth={2} className="text-muted-foreground" />
                 </Link>
               </TooltipTrigger>
               <TooltipContent side="right">Home</TooltipContent>
@@ -197,7 +198,7 @@ export function Menu() {
                 }`}
                 aria-label="Open menu"
               >
-                <HugeiconsIcon icon={CommandHugeIcon} size={20} />
+                <HugeiconsIcon icon={CommandHugeIcon} size={20} strokeWidth={2} className="text-muted-foreground" />
               </button>
             </TooltipTrigger>
             <TooltipContent side="right">Menu</TooltipContent>

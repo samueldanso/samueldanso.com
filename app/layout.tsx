@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Instrument_Serif, Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Menu } from "@/components/sections/menu";
@@ -12,6 +12,11 @@ import {
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
@@ -98,7 +103,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${instrumentSerif.variable} min-h-screen antialiased font-sans`}
+        className={`${inter.variable} ${outfit.variable} ${instrumentSerif.variable} min-h-screen antialiased font-sans`}
       >
         <ThemeProvider
           attribute="class"
@@ -107,7 +112,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Menu />
-          <DashedVerticalLines className="max-w-[44rem] mx-4 sm:mx-auto py-16 sm:py-20">
+          <DashedVerticalLines className="max-w-[44rem] mx-4 sm:mx-auto py-10 sm:py-14">
             <HorizontalDashedLine />
             <main className="w-full flex-1 pt-6 pb-10 sm:pt-8 sm:pb-16">
               {children}

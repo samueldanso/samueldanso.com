@@ -32,7 +32,7 @@ interface SectionTitleProps {
 export function SectionTitle({ className, children }: SectionTitleProps) {
   return (
     <dt className={cn("col-span-12 sm:col-span-4 pt-0", className)}>
-      <h3 className="font-sans text-base font-medium text-foreground">
+      <h3 className="font-title text-[18px] font-medium text-foreground">
         {children}
       </h3>
     </dt>

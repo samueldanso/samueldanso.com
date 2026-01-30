@@ -17,7 +17,7 @@ export default function WorkPage() {
             <span className="text-muted-foreground/60">~</span> Home
           </Link>
         </div>
-        <h1 className="font-display text-2xl mb-1">Selected Work</h1>
+        <h1 className="font-title text-2xl mb-1">Selected Work</h1>
         <p className="text-muted-foreground">Collection of work.</p>
       </section>
 
