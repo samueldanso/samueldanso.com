@@ -1,12 +1,12 @@
+import { ArrowUpRight03Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { allExperiences } from "content-collections";
 import { Badge } from "@/components/ui/badge";
 import {
+  SectionContent,
   SectionGrid,
   SectionTitle,
-  SectionContent,
 } from "@/components/ui/section-grid";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 
 export function Experience() {
   const experiences = [...allExperiences].sort((a, b) => {
@@ -23,10 +23,10 @@ export function Experience() {
       {experiences.map((experience, index) => (
         <div
           key={`${experience.year}-${experience.company}`}
-          className="contents"
+          className="group/row grid grid-cols-subgrid col-span-12"
         >
           <dt
-            className={`col-span-12 sm:col-span-4 ${
+            className={`col-span-12 sm:col-span-4 sm:pt-0.5 ${
               index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""
             }`}
           >
@@ -57,13 +57,14 @@ export function Experience() {
                   href={experience.companyHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground font-medium underline decoration-[1.5px] underline-offset-[2.5px] decoration-border hover:decoration-foreground/40 transition-colors inline-flex items-center gap-0.5 break-words"
+                  className="group inline-flex items-baseline gap-1 font-title text-[18px] font-medium text-foreground underline decoration-muted-foreground/40 hover:decoration-foreground/80 transition-all duration-200 group-hover/row:translate-x-0.5"
                 >
                   {experience.company}
                   <HugeiconsIcon
-                    icon={ArrowUpRight01Icon}
-                    size={16}
-                    className="inline ml-0.5 mb-0.5 decoration-transparent text-muted-foreground"
+                    icon={ArrowUpRight03Icon}
+                    size={14}
+                    strokeWidth={2}
+                    className="translate-y-[2px] text-muted-foreground group-hover:text-foreground/80 group-hover:-translate-y-0.5 transition-all"
                   />
                 </a>
               ) : (

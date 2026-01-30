@@ -48,7 +48,7 @@ export default function WorkPage({ params }: WorkPage) {
             <span className="text-muted-foreground/60">~</span> Work
           </Link>
         </div>
-        <h1 className="font-display text-2xl mb-1">{project.title}</h1>
+        <h1 className="font-title text-2xl mb-1">{project.title}</h1>
         <p className="text-muted-foreground mb-1">{project.description}</p>
         <div className="flex items-center gap-4 mt-4">
           <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-normal text-muted-foreground">
@@ -66,14 +66,14 @@ export default function WorkPage({ params }: WorkPage) {
             </a>
           )}
         </div>
-        {project.tech && project.tech.length > 0 && (
+        {project.stack && project.stack.length > 0 && (
           <div className="flex flex-wrap gap-2 mt-4">
-            {project.tech.map((tech) => (
+            {project.stack.map((item) => (
               <span
-                key={tech}
+                key={item}
                 className="text-muted-foreground/60 text-xs font-mono"
               >
-                {tech}
+                {item}
               </span>
             ))}
           </div>

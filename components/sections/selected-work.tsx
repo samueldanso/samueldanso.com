@@ -1,11 +1,13 @@
-import { allWorks } from "content-collections";
+import { ArrowRight02Icon, ArrowUpRight03Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
+import { allWorks } from "content-collections";
 import Link from "next/link";
+import { WorkListItem } from "@/components/sections/work-list-item";
+import { Badge } from "@/components/ui/badge";
 import {
+  SectionContent,
   SectionGrid,
   SectionTitle,
-  SectionContent,
 } from "@/components/ui/section-grid";
 
 export function SelectedWork() {
@@ -15,12 +17,16 @@ export function SelectedWork() {
 
   return (
     <SectionGrid>
-      <SectionTitle>Selected Work</SectionTitle>
+      <SectionTitle>Recent Work</SectionTitle>
       <SectionContent />
       {featuredProjects.map((project, index) => (
-        <div key={project._meta.path} className="contents">
+        <WorkListItem
+          key={project._meta.path}
+          title={project.title}
+          image={project.image}
+        >
           <dt
-            className={`col-span-12 sm:col-span-4 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}
+            className={`col-span-12 sm:col-span-4 sm:pt-0.5 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}
           >
             {project.date && (
               <h3 className="text-muted-foreground text-[15px] font-normal">
@@ -31,28 +37,32 @@ export function SelectedWork() {
           <dd
             className={`col-span-12 sm:col-span-8 ${index > 0 ? "border-none pt-0" : ""}`}
           >
-            <div>
-              <div className="mb-1">
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground font-medium underline decoration-[1.5px] underline-offset-[2.5px] decoration-border hover:decoration-foreground/40 transition-colors inline-flex items-center gap-0.5 break-words"
-                >
-                  {project.title}
-                  <HugeiconsIcon
-                    icon={ArrowRight01Icon}
-                    size={16}
-                    className="inline ml-0.5 mb-0.5 decoration-transparent text-muted-foreground"
-                  />
-                </a>
-              </div>
-              <p className="text-base text-muted-foreground leading-relaxed pt-1">
-                {project.description}
-              </p>
+            <div className="flex items-baseline justify-between gap-2">
+              <a
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-baseline gap-1 font-title text-[18px] font-medium text-foreground underline decoration-muted-foreground/40 hover:decoration-foreground/80 transition-all duration-200 group-hover/row:translate-x-0.5"
+              >
+                {project.title}
+                <HugeiconsIcon
+                  icon={ArrowUpRight03Icon}
+                  size={14}
+                  strokeWidth={2}
+                  className="translate-y-[2px] text-muted-foreground group-hover:text-foreground/80 group-hover:-translate-y-0.5 transition-all"
+                />
+              </a>
+              {project.status && (
+                <Badge variant="secondary" className="rounded-full px-2 py-0.5">
+                  {project.status}
+                </Badge>
+              )}
             </div>
+            <p className="text-[15px] text-muted-foreground leading-relaxed pt-1">
+              {project.description}
+            </p>
           </dd>
-        </div>
+        </WorkListItem>
       ))}
       {sortedProjects.length > featuredProjects.length && (
         <div className="contents">
@@ -60,9 +70,15 @@ export function SelectedWork() {
           <dd className="col-span-12 sm:col-span-8 border-none pt-0">
             <Link
               href="/work"
-              className="text-foreground underline decoration-border hover:decoration-foreground/40 transition-colors text-base font-medium inline-flex items-center gap-1"
+              className="group inline-flex items-baseline gap-1 text-muted-foreground font-medium underline decoration-muted-foreground/40 hover:decoration-foreground/80 transition-colors"
             >
-              View all <HugeiconsIcon icon={ArrowRight01Icon} size={16} />
+              View all work
+              <HugeiconsIcon
+                icon={ArrowRight02Icon}
+                size={14}
+                strokeWidth={2}
+                className="translate-y-[2px] text-muted-foreground group-hover:text-foreground/80 group-hover:-translate-y-0.5 transition-all"
+              />
             </Link>
           </dd>
         </div>

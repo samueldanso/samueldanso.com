@@ -1,12 +1,12 @@
-import Link from "next/link";
+import { ArrowUpRight03Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
-import { siteConfig } from "@/config/site";
+import Link from "next/link";
 import {
+  SectionContent,
   SectionGrid,
   SectionTitle,
-  SectionContent,
 } from "@/components/ui/section-grid";
+import { siteConfig } from "@/config/site";
 
 const contactItems = [
   {
@@ -52,13 +52,14 @@ export function ContactMe() {
                     target: "_blank",
                     rel: "noopener noreferrer",
                   })}
-                  className="inline-flex items-center gap-0.5 font-medium text-foreground underline decoration-[1.5px] underline-offset-[2.5px] decoration-border hover:decoration-foreground/40 transition-colors"
+                  className="group inline-flex items-baseline gap-1 font-medium text-foreground underline decoration-muted-foreground/40 hover:decoration-foreground/80 transition-colors"
                 >
                   {label}
                   <HugeiconsIcon
-                    icon={ArrowUpRight01Icon}
-                    size={16}
-                    className="inline shrink-0"
+                    icon={ArrowUpRight03Icon}
+                    size={14}
+                    strokeWidth={2}
+                    className="translate-y-[2px] text-muted-foreground group-hover:text-foreground/80 group-hover:-translate-y-0.5 transition-all"
                   />
                 </Link>
                 <p className="pt-1 text-[15px] text-muted-foreground">

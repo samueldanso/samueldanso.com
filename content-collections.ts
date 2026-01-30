@@ -11,6 +11,7 @@ const writing = defineCollection({
     summary: z.string(),
     date: z.string(),
     tags: z.array(z.string()).optional(),
+    image: z.string().optional(),
   }),
   transform: async (document, { collection, cache }) => {
     const mdx = await compileMDX({ cache }, document);
@@ -38,7 +39,9 @@ const work = defineCollection({
     href: z.string(),
     status: z.string(),
     sort: z.number(),
-    tech: z.array(z.string()).optional(),
+    stack: z.array(z.string()).optional(),
+    source: z.string().optional(),
+    image: z.string().optional(),
     date: z.string().optional(),
   }),
   transform: async (document, { collection, cache }) => {
@@ -79,6 +82,7 @@ const awards = defineCollection({
     year: z.string(),
     title: z.string(),
     description: z.string().optional(),
+    href: z.string().optional(),
   }),
 });
 

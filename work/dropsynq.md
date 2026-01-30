@@ -4,7 +4,10 @@ description: 'A SocialFi music platform where artists and fans can launch, and t
 href: 'https://dropsynq.vercel.app/'
 status: 'zora coinathon'
 sort: 4
-date: '2023'
+date: '2025'
+image: '/images/dropsynq-preview.png'
+source: 'https://github.com/samueldanso/dropsynq'
+stack: ['Next.js', 'TypeScript', 'Solidity', 'Tailwind CSS']
 ---
 
 # DropSynq
