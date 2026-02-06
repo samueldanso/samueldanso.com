@@ -13,8 +13,8 @@ export function SectionGrid({
   hideDivider,
 }: SectionGridProps) {
   return (
-    <div className="flex flex-col">
-      {!hideDivider && <DashedDivider className="mb-8 sm:mb-10" />}
+    <div className="flex flex-col pb-6 sm:pb-7">
+      {!hideDivider && <DashedDivider className="mb-6 sm:mb-7" />}
       <dl
         className={cn("grid grid-cols-12 gap-8 gap-y-2 sm:gap-y-4", className)}
       >

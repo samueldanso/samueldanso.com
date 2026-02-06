@@ -43,6 +43,11 @@ const work = defineCollection({
     source: z.string().optional(),
     image: z.string().optional(),
     date: z.string().optional(),
+    timeline: z.string().optional(),
+    role: z.string().optional(),
+    overview: z.string().optional(),
+    team: z.array(z.string()).optional(),
+    award: z.string().optional(),
   }),
   transform: async (document, { collection, cache }) => {
     const mdx = await compileMDX({ cache }, document);

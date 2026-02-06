@@ -64,7 +64,7 @@ export function Writing() {
 						href="/writing"
 						className="group inline-flex items-baseline gap-1 text-muted-foreground font-medium underline decoration-muted-foreground/40 hover:decoration-foreground/80 transition-colors"
 					>
-						See all posts
+						All posts
 						<HugeiconsIcon
 							icon={ArrowRight02Icon}
 							size={14}
