@@ -70,7 +70,7 @@ export function Hero({ name, title, isActive }: HeroProps) {
 					engineering, product thinking, and user experience to solve real problems.
 				</p>
 				<p className="mt-3">8X International hackathon winner.</p>
-				<p className="mt-3">Available for roles or collaborations.</p>
+				{/* <p className="mt-3">Available for roles or collaborations.</p> */}
 			</section>
 
 			{/* Contact & Social Links */}
