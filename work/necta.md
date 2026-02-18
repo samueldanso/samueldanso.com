@@ -1,7 +1,7 @@
 ---
 title: "Necta"
 description: "An intelligent, automated platform that makes earning stablecoin yield seamless and personalized."
-href: "https://nectafi.xyz"
+href: "https://necta-fi.vercel.app"
 status: "stealth"
 sort: 1
 date: "2025"
