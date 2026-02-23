@@ -9,8 +9,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { DashedDivider } from "@/components/ui/grid-patterns";
 import { useImageStore } from "@/lib/store/use-image";
+import { FadeUp } from "@/components/ui/animate";
 
 function HighlightImage({ src, alt }: { src: string; alt: string }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +31,7 @@ function HighlightImage({ src, alt }: { src: string; alt: string }) {
   return (
     <button
       type="button"
-      className="w-full rounded-xl border border-muted overflow-hidden cursor-pointer"
+      className="w-full rounded-lg border border-border/50 overflow-hidden cursor-pointer hover:border-border transition-colors duration-200"
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       aria-label={`View ${alt} in full screen`}
@@ -42,7 +42,7 @@ function HighlightImage({ src, alt }: { src: string; alt: string }) {
         width={800}
         height={600}
         sizes="(max-width: 768px) 85vw, 65vw"
-        className="rounded-xl w-full h-auto aspect-[4/3] object-cover"
+        className="rounded-lg w-full h-auto aspect-[4/3] object-cover"
         style={{
           WebkitFilter: isLoading ? "blur(8px)" : "none",
           transition: "all 0.5s ease",
@@ -61,36 +61,43 @@ export function Highlights() {
   }
 
   return (
-    <div className="flex flex-col">
-      <DashedDivider className="mb-8 sm:mb-10" />
-      <h3 className="font-title text-[18px] font-medium text-foreground mb-6">
-        Highlights
-      </h3>
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        plugins={[
-          Autoplay({
-            delay: 3000,
-          }),
-        ]}
-      >
-        <CarouselContent>
-          {sorted.map((item) => (
-            <CarouselItem
-              key={item._meta.filePath}
-              className="basis-[85%] sm:basis-[65%]"
-            >
-              <HighlightImage src={item.image} alt={item.title} />
-              <p className="text-[15px] text-muted-foreground pt-2">
-                {item.title}
-              </p>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-    </div>
+    <FadeUp>
+      <div className="flex flex-col py-8 sm:py-10">
+        <div
+          className="-mx-7 sm:-mx-6 border-t border-dashed border-border mb-5 sm:mb-6"
+          aria-hidden="true"
+        />
+        <h3 className="text-section-title font-title font-semibold text-muted-foreground mb-6">
+          Highlights
+        </h3>
+        <div className="-mx-7 sm:-mx-6 rounded-xl bg-muted/30 p-4 sm:p-5">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+              }),
+            ]}
+          >
+            <CarouselContent>
+              {sorted.map((item) => (
+                <CarouselItem
+                  key={item._meta.filePath}
+                  className="basis-[85%] sm:basis-[65%]"
+                >
+                  <HighlightImage src={item.image} alt={item.title} />
+                  <p className="text-caption text-muted-foreground pt-2">
+                    {item.title}
+                  </p>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+      </div>
+    </FadeUp>
   );
 }

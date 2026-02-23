@@ -11,6 +11,7 @@ import {
   CommandIcon as CommandHugeIcon,
   File01Icon,
   Folder01Icon,
+  FileDownloadIcon,
   Mail01Icon,
   NewTwitterIcon,
   Loading03Icon,
@@ -124,6 +125,16 @@ export function Menu() {
                 <span>Work</span>
               </div>
             </Command.Item>
+            <Command.Item onSelect={() => navigate("/resume/resume.pdf")}>
+              <div className="flex items-center gap-2 text-foreground">
+                <HugeiconsIcon
+                  icon={FileDownloadIcon}
+                  size={16}
+                  strokeWidth={2}
+                />
+                <span>Resume ↗</span>
+              </div>
+            </Command.Item>
           </Command.Group>
 
           <Command.Group heading="Appearance">
@@ -142,7 +153,11 @@ export function Menu() {
           <Command.Group heading="Contact">
             <Command.Item onSelect={() => navigate(siteConfig.links.twitter)}>
               <div className="flex items-center gap-2 text-foreground">
-                <HugeiconsIcon icon={NewTwitterIcon} size={16} strokeWidth={2} />
+                <HugeiconsIcon
+                  icon={NewTwitterIcon}
+                  size={16}
+                  strokeWidth={2}
+                />
                 <span>X</span>
               </div>
             </Command.Item>
@@ -154,7 +169,11 @@ export function Menu() {
             </Command.Item>
             <Command.Item onSelect={() => navigate(siteConfig.links.linkedin)}>
               <div className="flex items-center gap-2 text-foreground">
-                <HugeiconsIcon icon={Linkedin01Icon} size={16} strokeWidth={2} />
+                <HugeiconsIcon
+                  icon={Linkedin01Icon}
+                  size={16}
+                  strokeWidth={2}
+                />
                 <span>LinkedIn</span>
               </div>
             </Command.Item>
@@ -182,7 +201,12 @@ export function Menu() {
                   className="absolute left-0 flex items-center justify-center size-12 rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:scale-110 active:scale-90 transition-all shadow-sm will-change-transform"
                   aria-label="Go home"
                 >
-                  <HugeiconsIcon icon={Home01Icon} size={20} strokeWidth={2} className="text-foreground" />
+                  <HugeiconsIcon
+                    icon={Home01Icon}
+                    size={20}
+                    strokeWidth={2}
+                    className="text-foreground"
+                  />
                 </Link>
               </TooltipTrigger>
               <TooltipContent side="right">Home</TooltipContent>
@@ -198,7 +222,12 @@ export function Menu() {
                 }`}
                 aria-label="Open menu"
               >
-                <HugeiconsIcon icon={CommandHugeIcon} size={20} strokeWidth={2} className="text-foreground" />
+                <HugeiconsIcon
+                  icon={CommandHugeIcon}
+                  size={20}
+                  strokeWidth={2}
+                  className="text-foreground"
+                />
               </button>
             </TooltipTrigger>
             <TooltipContent side="right">Menu</TooltipContent>

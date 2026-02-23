@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { readingTime } from "reading-time-estimator";
 import { MDX } from "@/components/mdx";
 
-interface WritingPage {
+interface WritingPageProps {
   params: {
     slug: string;
   };
@@ -13,15 +13,13 @@ interface WritingPage {
 
 function formatDate(date: Date): string {
   return Intl.DateTimeFormat("en-US", {
-    year: "2-digit",
-    month: "short",
+    year: "numeric",
+    month: "long",
     day: "numeric",
-  })
-    .format(date)
-    .toUpperCase();
+  }).format(date);
 }
 
-export function generateMetadata({ params }: WritingPage): Metadata {
+export function generateMetadata({ params }: WritingPageProps): Metadata {
   const post = allWritings.find((post) => post._meta.path === params.slug);
 
   if (!post) {
@@ -38,49 +36,57 @@ export function generateMetadata({ params }: WritingPage): Metadata {
   };
 }
 
-export default function WritingPage({ params }: WritingPage) {
+export default function WritingDetailPage({ params }: WritingPageProps) {
   const post = allWritings.find((post) => post._meta.path === params.slug);
   if (!post) return notFound();
 
   const readingTimeMinutes = readingTime(post.content).minutes;
 
   return (
-    <div className="container">
-      {/* Hero Section */}
-      <section className="pt-4 pb-10 sm:pt-6 sm:pb-14">
-        <div className="mb-6">
-          <Link
-            href="/writing"
-            className="text-muted-foreground font-medium text-sm no-underline hover:underline"
-          >
-            <span className="text-muted-foreground/60">~</span> Writing
-          </Link>
-        </div>
-        <h1 className="font-title text-2xl mb-1">{post.title}</h1>
+    <div className="container py-6 md:py-8">
+      <div className="mb-6">
+        <Link
+          href="/writing"
+          className="text-caption text-muted-foreground font-medium no-underline hover:text-foreground transition-colors duration-200"
+        >
+          <span className="text-muted-foreground/50">~</span> Writing
+        </Link>
+      </div>
+
+      <header className="pb-8 mb-8 border-b border-dashed border-border">
+        <h1 className="text-[1.625rem] leading-tight font-display text-foreground mb-3">
+          {post.title}
+        </h1>
         {post.summary && (
-          <p className="text-muted-foreground mb-1">{post.summary}</p>
+          <p className="text-body text-muted-foreground mb-4">{post.summary}</p>
         )}
-        <p className="text-muted-foreground/60 text-sm font-mono tabular-nums">
-          {formatDate(new Date(post.date))}{" "}
-          <span className="opacity-60 mx-1">•</span> {readingTimeMinutes} min
-          read
-        </p>
+        <div className="flex items-center gap-3">
+          <time
+            dateTime={post.date}
+            className="text-caption text-muted-foreground"
+          >
+            {formatDate(new Date(post.date))}
+          </time>
+          <span className="text-border select-none">/</span>
+          <span className="text-caption text-muted-foreground">
+            {readingTimeMinutes} min read
+          </span>
+        </div>
         {post.tags && post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-3 mt-6">
+          <div className="flex flex-wrap gap-2 mt-4">
             {post.tags.map((tag) => (
               <Link
                 key={tag}
                 href={`/writing?tag=${tag}`}
-                className="text-muted-foreground text-sm font-mono no-underline hover:underline"
+                className="text-caption text-muted-foreground font-mono no-underline hover:text-foreground transition-colors duration-200"
               >
                 #{tag}
               </Link>
             ))}
           </div>
         )}
-      </section>
+      </header>
 
-      {/* Content */}
       <div className="prose prose-zinc dark:prose-invert max-w-none">
         <MDX code={post.mdx} />
       </div>

@@ -42,10 +42,15 @@ const work = defineCollection({
     stack: z.array(z.string()).optional(),
     source: z.string().optional(),
     image: z.string().optional(),
+    icon: z.string().optional(),
     date: z.string().optional(),
     timeline: z.string().optional(),
     role: z.string().optional(),
     overview: z.string().optional(),
+    problem: z.string().optional(),
+    whatIBuilt: z.string().optional(),
+    challenges: z.string().optional(),
+    outcome: z.string().optional(),
     team: z.array(z.string()).optional(),
     award: z.string().optional(),
   }),
@@ -88,6 +93,7 @@ const awards = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     href: z.string().optional(),
+    sort: z.number(),
   }),
 });
 

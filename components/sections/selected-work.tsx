@@ -1,80 +1,126 @@
-import { ArrowRight02Icon, ArrowUpRight03Icon } from "@hugeicons/core-free-icons"
-import { HugeiconsIcon } from "@hugeicons/react"
-import { allWorks } from "content-collections"
-import Link from "next/link"
-import { WorkListItem } from "@/components/sections/work-list-item"
-import { Badge } from "@/components/ui/badge"
-import { SectionContent, SectionGrid, SectionTitle } from "@/components/ui/section-grid"
+"use client";
+
+import {
+  ArrowRight02Icon,
+  ArrowUpRight03Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { allWorks } from "content-collections";
+import Image from "next/image";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import { WorkListItem } from "@/components/sections/work-list-item";
+import { ProjectPreviewCard } from "@/components/ui/project-preview-card";
+import {
+  SectionContent,
+  SectionGrid,
+  SectionTitle,
+} from "@/components/ui/section-grid";
+
+interface ActiveProject {
+  image: string;
+  title: string;
+}
 
 export function SelectedWork() {
-	// Sort projects by the sort field and take only featured (first 5)
-	const sortedProjects = [...allWorks].sort((a, b) => a.sort - b.sort)
-	const featuredProjects = sortedProjects.slice(0, 5)
+  const [activeProject, setActiveProject] = useState<ActiveProject | null>(
+    null,
+  );
+  const leaveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-	return (
-		<SectionGrid>
-			<SectionTitle>Recent Work</SectionTitle>
-			<SectionContent />
-			{featuredProjects.map((project, index) => (
-				<WorkListItem key={project._meta.path} title={project.title} image={project.image}>
-					<dt
-						className={`col-span-12 sm:col-span-4 sm:pt-0.5 ${index > 0 ? "mt-4 border-none pt-0 sm:mt-0" : ""}`}
-					>
-						{project.date && (
-							<h3 className="text-muted-foreground text-[15px] font-normal">
-								{project.date}
-							</h3>
-						)}
-					</dt>
-					<dd
-						className={`col-span-12 sm:col-span-8 ${index > 0 ? "border-none pt-0" : ""}`}
-					>
-						<div className="flex items-baseline justify-between gap-2">
-							<a
-								href={project.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="group inline-flex items-baseline gap-1 font-title text-[18px] font-medium text-foreground underline decoration-muted-foreground/40 hover:decoration-foreground/80 transition-all duration-200 group-hover/row:translate-x-0.5"
-							>
-								{project.title}
-								<HugeiconsIcon
-									icon={ArrowUpRight03Icon}
-									size={14}
-									strokeWidth={2}
-									className="translate-y-[2px] text-muted-foreground group-hover:text-foreground/80 group-hover:-translate-y-0.5 transition-all"
-								/>
-							</a>
-							{false && project.status && (
-								<Badge variant="secondary" className="rounded-full px-2 py-0.5">
-									{project.status}
-								</Badge>
-							)}
-						</div>
-						<p className="text-[15px] text-muted-foreground leading-relaxed pt-1">
-							{project.description}
-						</p>
-					</dd>
-				</WorkListItem>
-			))}
-			{sortedProjects.length > featuredProjects.length && (
-				<div className="contents">
-					<dt className="col-span-12 sm:col-span-4 mt-4 border-none pt-0 sm:mt-0"></dt>
-					<dd className="col-span-12 sm:col-span-8 border-none pt-0">
-						<Link
-							href="/work"
-							className="group inline-flex items-baseline gap-1 text-muted-foreground font-medium underline decoration-muted-foreground/40 hover:decoration-foreground/80 transition-colors"
-						>
-							All projects
-							<HugeiconsIcon
-								icon={ArrowRight02Icon}
-								size={14}
-								strokeWidth={2}
-								className="translate-y-[2px] text-muted-foreground group-hover:text-foreground/80 group-hover:-translate-y-0.5 transition-all"
-							/>
-						</Link>
-					</dd>
-				</div>
-			)}
-		</SectionGrid>
-	)
+  const sortedProjects = [...allWorks].sort((a, b) => a.sort - b.sort);
+  const featuredProjects = sortedProjects.slice(0, 4);
+
+  function handleHover(project: ActiveProject) {
+    if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
+    setActiveProject(project);
+  }
+
+  function handleLeave() {
+    leaveTimeoutRef.current = setTimeout(() => setActiveProject(null), 80);
+  }
+
+  return (
+    <SectionGrid>
+      <SectionTitle>Selected Work</SectionTitle>
+      <SectionContent />
+      <div className="col-span-12 grid grid-cols-12 gap-x-8 gap-y-2">
+        {featuredProjects.map((project) => (
+          <WorkListItem
+            key={project._meta.path}
+            title={project.title}
+            image={project.image}
+            onHover={() =>
+              project.image
+                ? handleHover({ image: project.image, title: project.title })
+                : undefined
+            }
+            onLeave={handleLeave}
+          >
+            <dd className="col-span-12 sm:col-span-8">
+              <div className="flex items-center gap-2">
+                {project.icon && (
+                  <Image
+                    src={project.icon}
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="size-4 shrink-0 rounded-sm"
+                  />
+                )}
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-baseline gap-1 text-item-title font-title font-medium text-foreground underline decoration-border underline-offset-4 group-hover/row:decoration-foreground/60 transition-all duration-200"
+                >
+                  {project.title}
+                  <HugeiconsIcon
+                    icon={ArrowUpRight03Icon}
+                    size={13}
+                    strokeWidth={2}
+                    className="translate-y-[1px] text-muted-foreground group-hover/row:text-foreground/70 group-hover/row:-translate-y-0.5 transition-all duration-200"
+                  />
+                </a>
+              </div>
+              <p className="text-caption text-muted-foreground leading-relaxed pt-1">
+                {project.description}
+              </p>
+            </dd>
+            <dt className="col-span-12 sm:col-span-4 sm:pt-0.5 sm:text-right mb-0.5 sm:mb-0">
+              {project.date && (
+                <span className="text-caption text-muted-foreground">
+                  {project.date}
+                </span>
+              )}
+            </dt>
+          </WorkListItem>
+        ))}
+      </div>
+      {sortedProjects.length > featuredProjects.length && (
+        <div className="contents">
+          <dd className="col-span-12 sm:col-span-8 border-none pt-1">
+            <Link
+              href="/work"
+              className="group inline-flex items-baseline gap-1 text-caption text-muted-foreground font-medium underline decoration-border underline-offset-4 hover:decoration-foreground/60 hover:text-foreground transition-all duration-200"
+            >
+              See all projects
+              <HugeiconsIcon
+                icon={ArrowRight02Icon}
+                size={13}
+                strokeWidth={2}
+                className="translate-y-[1px] text-muted-foreground group-hover:text-foreground/70 group-hover:-translate-y-0.5 transition-all duration-200"
+              />
+            </Link>
+          </dd>
+          <dt className="col-span-12 sm:col-span-4 mt-4 border-none pt-0 sm:mt-0" />
+        </div>
+      )}
+      <ProjectPreviewCard
+        image={activeProject?.image}
+        title={activeProject?.title}
+        visible={!!activeProject}
+      />
+    </SectionGrid>
+  );
 }

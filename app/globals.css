@@ -140,6 +140,34 @@
   .font-display {
     font-family: var(--font-instrument-serif);
   }
+
+  .text-heading {
+    font-size: 1.375rem;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .text-section-title {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .text-item-title {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .text-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+  .text-caption {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .text-small {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
 }
 
 /* Custom container styles - matches Fabian (max-w-main 46rem) */

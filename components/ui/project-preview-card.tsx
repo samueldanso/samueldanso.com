@@ -1,41 +1,62 @@
 "use client";
 
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import Image from "next/image";
+import { useEffect } from "react";
 
 interface ProjectPreviewCardProps {
-  title: string;
-  image: string;
-  top: number;
+  image?: string;
+  title?: string;
   visible: boolean;
 }
 
+const CARD_WIDTH = 320;
+
 export function ProjectPreviewCard({
-  title,
   image,
-  top,
+  title,
   visible,
 }: ProjectPreviewCardProps) {
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+
+  const x = useSpring(rawX, { stiffness: 180, damping: 22, mass: 0.5 });
+  const y = useSpring(rawY, { stiffness: 180, damping: 22, mass: 0.5 });
+
+  useEffect(() => {
+    function handleMouseMove(e: MouseEvent) {
+      rawX.set(e.clientX + 20);
+      rawY.set(e.clientY - 100);
+    }
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [rawX, rawY]);
+
   return (
-    <div
-      className="pointer-events-none fixed z-50 w-64 overflow-hidden rounded-xl border bg-card shadow-lg"
-      style={{
-        top,
-        right: "max(1rem, calc((100vw - 768px) / 2 - 5.5rem))",
+    <motion.div
+      initial={false}
+      className="pointer-events-none fixed left-0 top-0 z-50 rounded-xl border border-border bg-card p-1.5 shadow-xl"
+      style={{ x, y, width: CARD_WIDTH }}
+      animate={{
         opacity: visible ? 1 : 0,
-        transform: `translateX(${visible ? "0" : "8px"}) scale(${visible ? 1 : 0.97})`,
-        transition: "opacity 250ms cubic-bezier(0.16, 1, 0.3, 1), transform 250ms cubic-bezier(0.16, 1, 0.3, 1)",
+        scale: visible ? 1 : 0.95,
       }}
+      transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <div className="relative aspect-video w-full overflow-hidden">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover"
-          sizes="288px"
-          priority={false}
-        />
-      </div>
-    </div>
+      {image && (
+        <div className="relative w-full overflow-hidden rounded-lg">
+          <Image
+            src={image}
+            alt={title ?? ""}
+            width={CARD_WIDTH}
+            height={Math.round(CARD_WIDTH * 0.625)}
+            className="w-full h-auto object-cover rounded-lg"
+            sizes={`${CARD_WIDTH}px`}
+            priority={false}
+          />
+        </div>
+      )}
+    </motion.div>
   );
 }

@@ -1,0 +1,7 @@
+---
+year: "2025"
+title: "Safe Agentathon"
+description: "Advanced Portfolio Management Track  — 1st Place"
+href: "https://devfolio.co/projects/nectafi-ab31"
+sort: 1
+---

@@ -1,5 +1,5 @@
 ---
-title: "ETHiopia Builder Residency"
+title: "Building at ETHiopia Builder Residency"
 image: "/images/highlights/ETHiopia-residency.jpg"
 sort: 2
 ---

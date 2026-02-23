@@ -1,11 +1,12 @@
 ---
 title: "Necta"
-description: "An intelligent, automated platform that makes earning stablecoin yield seamless and personalized."
+description: "AI-powered stablecoin yield platform."
 href: "https://necta-fi.vercel.app"
-status: "stealth"
+status: "Wound down"
 sort: 1
 date: "2025"
 image: "/images/projects/necta-preview.png"
+icon: "/icons/necta-icon.svg"
 source: "https://github.com/necta-fi"
 stack:
     [
@@ -24,9 +25,15 @@ stack:
     ]
 timeline: "10 months, Feb 2025 - Nov 2025"
 role: "Founding engineer"
-overview: "Necta automates and optimizes your stablecoin yield strategies across multiple DeFi protocols. Maximize returns with no manual tracking – fully on-chain and self-custodial. Multi-Agent Intelligence: Three specialized AI agents Sentinel, Curator and Executor collaborate to automatically optimize yields across multiple protocols, securing the highest APYs effortlessly. Automated Rebalancing: Continuously rebalances your portfolio to maximize returns-no manual tracking required. Self-Custodial: Fully on-chain and self-custodial."
+overview: "Built Necta as sole engineer — an AI-powered stablecoin yield platform using a multi-agent architecture. Three specialized agents (Sentinel, Curator, Executor) work together to automatically optimize yield strategies across DeFi protocols, fully on-chain and self-custodial."
+problem: "DeFi yield optimization requires constant manual monitoring across multiple protocols — most users miss better opportunities or lose returns through inaction."
+whatIBuilt: "Designed and built the full product end-to-end — frontend dashboard, backend API, smart contracts, and a multi-agent AI system. Three specialized agents (Sentinel, Curator, Executor) collaborate to automatically optimize yield strategies across DeFi protocols."
+challenges: "Coordinating multiple AI agents reliably on-chain was the hardest technical problem. Ensuring the agents made safe, non-destructive decisions with user funds required extensive testing and conservative guardrails."
+outcome: "Shipped from concept to live beta in 10 months as sole engineer."
 team:
-    - "Samuel Danso"
+    - "Samuel Danso - Co - Founder"
+    - "Emmanuel Ammeyaw - Co-Founder"
+award: "Advanced Portfolio Management Track & Brahma ConsoleKit — 1st Place 🏆"
 ---
 
 # Necta

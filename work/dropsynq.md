@@ -3,9 +3,10 @@ title: "DropSynq"
 description: "A SocialFi music platform where artists and fans can launch, and trade tokenized songs."
 href: "https://dropsynq.vercel.app/"
 status: "zora coinathon 2025"
-sort: 4
+sort: 6
 date: "2025"
 image: "/images/projects/dropsynq-preview.png"
+icon: ""
 source: "https://github.com/samueldanso/dropsynq"
 stack: ["Next.js", "TypeScript", "Drizzle ORM", "PostgressSQL", "wagmi/Viem", "Zora"]
 timeline: "1 month, June 15 - July 20 2025"

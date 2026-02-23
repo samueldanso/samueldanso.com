@@ -1,26 +1,31 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import { DashedDivider } from "./grid-patterns";
+import { FadeUp } from "@/components/ui/animate";
 
 interface SectionGridProps {
   children: React.ReactNode;
   className?: string;
-  hideDivider?: boolean;
 }
 
-export function SectionGrid({
-  className,
-  children,
-  hideDivider,
-}: SectionGridProps) {
+export function SectionGrid({ className, children }: SectionGridProps) {
   return (
-    <div className="flex flex-col pb-6 sm:pb-7">
-      {!hideDivider && <DashedDivider className="mb-6 sm:mb-7" />}
-      <dl
-        className={cn("grid grid-cols-12 gap-8 gap-y-2 sm:gap-y-4", className)}
-      >
-        {children}
-      </dl>
-    </div>
+    <FadeUp>
+      <div className="flex flex-col py-6 sm:py-8">
+        <div
+          className="-mx-7 sm:-mx-6 border-t border-dashed border-border mb-5 sm:mb-6"
+          aria-hidden="true"
+        />
+        <dl
+          className={cn(
+            "grid grid-cols-12 gap-x-8 gap-y-3 sm:gap-y-4",
+            className,
+          )}
+        >
+          {children}
+        </dl>
+      </div>
+    </FadeUp>
   );
 }
 
@@ -32,7 +37,7 @@ interface SectionTitleProps {
 export function SectionTitle({ className, children }: SectionTitleProps) {
   return (
     <dt className={cn("col-span-12 sm:col-span-4 pt-0", className)}>
-      <h3 className="font-title text-[18px] font-medium text-foreground">
+      <h3 className="text-section-title font-title font-semibold text-muted-foreground">
         {children}
       </h3>
     </dt>

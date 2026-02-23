@@ -1,11 +1,12 @@
 ---
 title: "Believr"
-description: "A decentralized social co-investing platform where early believers back creators they believe in."
+description: "Decentralized social co-investing platform for creators."
 href: "https://believr.fun"
 status: "lens spring hackathon 2025"
-sort: 2
+sort: 3
 date: "2025"
 image: "/images/projects/believr-preview.png"
+icon: "/icons/believr-icon.svg"
 source: "https://github.com/believr-xyz/believr"
 stack:
     [
@@ -20,7 +21,11 @@ stack:
     ]
 timeline: "3 weeks, May 5 - May 25 2025"
 role: "Full-stack engineer"
-overview: "A decentralized social platform where early backers co-invest in creators they believe in and share in their rise. Powered by Lens Protocol, it enables creators to launch tokenized campaigns to raise support, while backers earn rewards, access, and a stake in their journey. For Creators: raise early funds directly from your true believers, build a loyal, invested community — not just followers, share success with the people who backed you from day one. For Fans: support creators you believe in — and share in their riseet exclusive access, rewards, and real ownershipBe more than a follower — be part of the story."
+overview: "A decentralized social platform where early backers co-invest in creators they believe in and share in their rise. Powered by Lens Protocol, it enables creators to launch tokenized campaigns to raise support, while backers earn rewards, access, and a stake in their journey. For Creators: raise early funds directly from your true believers, build a loyal, invested community — not just followers, share success with the people who backed you from day one. For Fans: support creators you believe in — and share in their riseet exclusive access, rewards, and real ownership. Be more than a follower — be part of the story."
+problem: "Creators struggle to fund their work without giving up ownership — and fans have no way to share in the success of the creators they believe in early."
+whatIBuilt: "Built a decentralized co-investing platform on Lens Protocol where fans back creators through tokenized campaigns, earn rewards, and access gated communities. Handled full-stack development — frontend, smart contract integration, and on-chain identity via Lens."
+challenges: "Building on Lens Protocol required deep understanding of decentralized social graphs. Designing the token campaign mechanics to feel simple for non-crypto users while remaining fully on-chain was the core UX challenge."
+outcome: "Shipped from concept to live beta in 10 months as sole engineer."
 team:
     - "Samuel Danso"
 award: "HONORARY MENTION #2 on the Lens Spring Hackathon 🏆"
