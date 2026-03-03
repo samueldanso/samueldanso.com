@@ -9,7 +9,7 @@ import { Writing } from "@/components/sections/writing"
 export default function Home() {
 	return (
 		<section className="container py-6 md:py-8">
-			<Header name="Samuel Danso" title="Full-Stack Engineer" isActive={false} />
+			<Header name="Samuel Danso" title="Software Engineer" isActive={false} />
 			<About />
 			<SelectedWork />
 			<Experience />
