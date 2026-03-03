@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { FadeUp } from "@/components/ui/animate";
+import { LinesBG } from "@/components/ui/grid-patterns";
 
 interface SectionGridProps {
   children: React.ReactNode;
@@ -11,11 +12,8 @@ interface SectionGridProps {
 export function SectionGrid({ className, children }: SectionGridProps) {
   return (
     <FadeUp>
-      <div className="flex flex-col py-6 sm:py-8">
-        <div
-          className="-mx-7 sm:-mx-6 border-t border-dashed border-border mb-5 sm:mb-6"
-          aria-hidden="true"
-        />
+      <div className="flex flex-col pb-8 md:pb-16">
+        <LinesBG className="-mx-7 sm:-mx-6 mb-8 md:mb-16" />
         <dl
           className={cn(
             "grid grid-cols-12 gap-x-8 gap-y-3 sm:gap-y-4",

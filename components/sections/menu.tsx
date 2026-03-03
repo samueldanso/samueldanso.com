@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
+
+let _openMenu: (() => void) | null = null;
+
+export function openMenu() {
+  _openMenu?.();
+}
 import { Command } from "cmdk";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -15,11 +21,10 @@ import {
   Mail01Icon,
   NewTwitterIcon,
   Loading03Icon,
-  Moon02Icon,
-  Sun01Icon,
   Github01Icon,
   Linkedin01Icon,
 } from "@hugeicons/core-free-icons";
+import { ThemeToggleIcon } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import {
   Tooltip,
@@ -64,6 +69,13 @@ export function Menu() {
   };
 
   useEffect(() => {
+    _openMenu = () => setOpen(true);
+    return () => {
+      _openMenu = null;
+    };
+  }, []);
+
+  useEffect(() => {
     if (!mounted) return;
 
     // Prefetch routes
@@ -79,7 +91,9 @@ export function Menu() {
     };
 
     document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
+    return () => {
+      document.removeEventListener("keydown", down);
+    };
   }, [mounted, router]);
 
   if (!mounted) {
@@ -125,39 +139,30 @@ export function Menu() {
                 <span>Work</span>
               </div>
             </Command.Item>
+          </Command.Group>
+
+          <Command.Group heading="Resume">
             <Command.Item onSelect={() => navigate("/resume/resume.pdf")}>
               <div className="flex items-center gap-2 text-foreground">
-                <HugeiconsIcon
-                  icon={FileDownloadIcon}
-                  size={16}
-                  strokeWidth={2}
-                />
-                <span>Resume ↗</span>
+                <HugeiconsIcon icon={FileDownloadIcon} size={16} strokeWidth={2} />
+                <span>Resume</span>
               </div>
             </Command.Item>
           </Command.Group>
 
-          <Command.Group heading="Appearance">
+          <Command.Group heading="Theme">
             <Command.Item onSelect={toggleTheme}>
               <div className="flex items-center gap-2 text-foreground">
-                {theme === "dark" ? (
-                  <HugeiconsIcon icon={Sun01Icon} size={16} strokeWidth={2} />
-                ) : (
-                  <HugeiconsIcon icon={Moon02Icon} size={16} strokeWidth={2} />
-                )}
-                <span>Switch theme</span>
+                <ThemeToggleIcon className="size-4" />
+                <span>{theme === "dark" ? "Light" : "Dark"}</span>
               </div>
             </Command.Item>
           </Command.Group>
 
-          <Command.Group heading="Contact">
+          <Command.Group heading="Social Links">
             <Command.Item onSelect={() => navigate(siteConfig.links.twitter)}>
               <div className="flex items-center gap-2 text-foreground">
-                <HugeiconsIcon
-                  icon={NewTwitterIcon}
-                  size={16}
-                  strokeWidth={2}
-                />
+                <HugeiconsIcon icon={NewTwitterIcon} size={16} strokeWidth={2} />
                 <span>X</span>
               </div>
             </Command.Item>
@@ -169,11 +174,7 @@ export function Menu() {
             </Command.Item>
             <Command.Item onSelect={() => navigate(siteConfig.links.linkedin)}>
               <div className="flex items-center gap-2 text-foreground">
-                <HugeiconsIcon
-                  icon={Linkedin01Icon}
-                  size={16}
-                  strokeWidth={2}
-                />
+                <HugeiconsIcon icon={Linkedin01Icon} size={16} strokeWidth={2} />
                 <span>LinkedIn</span>
               </div>
             </Command.Item>
@@ -190,7 +191,7 @@ export function Menu() {
       <nav
         className={`${
           isHome ? "w-12" : "w-28"
-        } fixed bottom-6 left-6 top-auto z-50 md:bottom-auto md:left-8 md:top-8 print:hidden`}
+        } fixed bottom-6 left-6 top-auto z-50 md:hidden print:hidden`}
       >
         <div className="relative flex h-12 gap-2">
           {!isHome && (

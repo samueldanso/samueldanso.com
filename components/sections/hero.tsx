@@ -21,7 +21,7 @@ export function Hero({ name, title, isActive }: HeroProps) {
       <StaggerItem>
         <header className="flex items-center gap-4">
           <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-            <h1 className="text-[1.625rem] leading-tight font-display font-medium text-foreground">
+            <h1 className="text-[30px] leading-tight font-display font-medium text-foreground">
               {name}
             </h1>
             <p className="text-body text-muted-foreground font-title">
@@ -95,6 +95,7 @@ export function Hero({ name, title, isActive }: HeroProps) {
               icon={Mail01Icon}
               size={15}
               strokeWidth={2}
+       
               className="shrink-0 text-muted-foreground"
             />
             <span>Send an email</span>

@@ -23,7 +23,7 @@ const components = {
       data-highlight="false"
       id={props.children?.toString().toLowerCase().replace(/\s+/g, "-")}
       className={cn(
-        "font-title font-medium lg:leading-[1.1] mb-2 text-[15px]",
+        "font-title font-medium lg:leading-[1.1] mb-2 text-[16px]",
         className,
       )}
       {...props}
@@ -43,7 +43,7 @@ const components = {
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
-        "prose prose-neutral dark:prose-invert text-[15px] leading-7 [&:not(:first-child)]:mt-6  ",
+        "prose prose-neutral dark:prose-invert text-[16px] leading-7 [&:not(:first-child)]:mt-6  ",
         className,
       )}
       {...props}
@@ -52,7 +52,7 @@ const components = {
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
     <ul
       className={cn(
-        "prose prose-neutral dark:prose-invert text-[15px] mt-2 ml-2 list-disc",
+        "prose prose-neutral dark:prose-invert text-[16px] mt-2 ml-2 list-disc",
         className,
       )}
       {...props}
@@ -71,7 +71,7 @@ const components = {
     <a
       target="_blank"
       className={cn(
-        "prose prose-neutral dark:prose-invert text-[15px]  border-b border-dashed border-neutral-700 no-underline pb-[1.4px] hover:border-solid",
+        "prose prose-neutral dark:prose-invert text-[16px]  border-b border-dashed border-neutral-700 no-underline pb-[1.4px] hover:border-solid",
         className,
       )}
       {...props}

@@ -44,7 +44,7 @@ export function SelectedWork() {
     <SectionGrid>
       <SectionTitle>Selected Work</SectionTitle>
       <SectionContent />
-      <div className="col-span-12 grid grid-cols-12 gap-x-8 gap-y-2">
+      <div className="col-span-12 grid grid-cols-12 gap-x-8 gap-y-3">
         {featuredProjects.map((project) => (
           <WorkListItem
             key={project._meta.path}
@@ -72,14 +72,16 @@ export function SelectedWork() {
                   href={project.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-baseline gap-1 text-item-title font-title font-medium text-foreground underline decoration-border underline-offset-4 group-hover/row:decoration-foreground/60 transition-all duration-200"
+                  className="group/title inline-flex items-center gap-1 text-item-title font-title font-medium text-foreground"
                 >
-                  {project.title}
+                  <span className="border-b border-dashed border-foreground/60 group-hover/row:border-foreground transition-colors duration-200">
+                    {project.title}
+                  </span>
                   <HugeiconsIcon
                     icon={ArrowUpRight03Icon}
                     size={13}
                     strokeWidth={2}
-                    className="translate-y-[1px] text-muted-foreground group-hover/row:text-foreground/70 group-hover/row:-translate-y-0.5 transition-all duration-200"
+                    className="text-muted-foreground group-hover/row:text-foreground/70 group-hover/row:-translate-y-0.5 transition-all duration-200"
                   />
                 </a>
               </div>
@@ -102,9 +104,11 @@ export function SelectedWork() {
           <dd className="col-span-12 sm:col-span-8 border-none pt-1">
             <Link
               href="/work"
-              className="group inline-flex items-baseline gap-1 text-caption text-muted-foreground font-medium underline decoration-border underline-offset-4 hover:decoration-foreground/60 hover:text-foreground transition-all duration-200"
+              className="group inline-flex items-center gap-1 text-caption text-muted-foreground font-medium hover:text-foreground transition-colors duration-200"
             >
-              See all projects
+              <span className="border-b border-dashed border-foreground/40 group-hover:border-foreground/60 transition-colors duration-200">
+                See all projects
+              </span>
               <HugeiconsIcon
                 icon={ArrowRight02Icon}
                 size={13}

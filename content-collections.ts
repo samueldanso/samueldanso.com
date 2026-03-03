@@ -4,7 +4,7 @@ import { z } from "zod";
 
 const writing = defineCollection({
   name: "writing",
-  directory: "writing",
+  directory: "content/writing",
   include: "**/*.mdx",
   schema: z.object({
     title: z.string(),
@@ -31,8 +31,8 @@ const writing = defineCollection({
 
 const work = defineCollection({
   name: "work",
-  directory: "work",
-  include: "**/*.md",
+  directory: "content/work",
+  include: "**/*.mdx",
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -72,8 +72,8 @@ const work = defineCollection({
 
 const experience = defineCollection({
   name: "experience",
-  directory: "experience",
-  include: "**/*.md",
+  directory: "content/experience",
+  include: "**/*.mdx",
   schema: z.object({
     year: z.string(),
     isPresent: z.boolean().optional(),
@@ -86,8 +86,8 @@ const experience = defineCollection({
 
 const awards = defineCollection({
   name: "awards",
-  directory: "awards",
-  include: "**/*.md",
+  directory: "content/awards",
+  include: "**/*.mdx",
   schema: z.object({
     year: z.string(),
     title: z.string(),
@@ -99,8 +99,8 @@ const awards = defineCollection({
 
 const highlights = defineCollection({
   name: "highlights",
-  directory: "highlights",
-  include: "**/*.md",
+  directory: "content/highlights",
+  include: "**/*.mdx",
   schema: z.object({
     title: z.string(),
     image: z.string(),

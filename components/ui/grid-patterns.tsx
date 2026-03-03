@@ -26,6 +26,26 @@ export function DottedGrid({ className, children }: GridPatternProps) {
 }
 
 /**
+ * Diagonal hatched section divider (like lokendra.tech)
+ * Usage: Between major sections as structural separator
+ */
+export function LinesBG({ className }: GridPatternProps) {
+  return (
+    <div
+      className={cn(
+        "relative h-10 overflow-hidden border border-dashed border-border",
+        "before:absolute before:-left-[100vw] before:top-0 before:h-full before:w-[200vw]",
+        "before:[background-image:repeating-linear-gradient(315deg,var(--cd-edge)_0,var(--cd-edge)_1px,transparent_0,transparent_50%)]",
+        "before:[background-size:10px_10px]",
+        "before:opacity-80",
+        className,
+      )}
+      aria-hidden="true"
+    />
+  );
+}
+
+/**
  * Diagonal hatched lines pattern (like deeplakhani.co)
  * Usage: Section dividers or decorative backgrounds
  */

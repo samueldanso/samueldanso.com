@@ -2,6 +2,7 @@ import { ArrowUpRight03Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { siteConfig } from "@/config/site";
 import { FadeUp } from "@/components/ui/animate";
+import { LinesBG } from "@/components/ui/grid-patterns";
 
 const contactItems = [
   {
@@ -30,10 +31,7 @@ export function Contact() {
   return (
     <FadeUp>
       <div className="flex flex-col pt-8 pb-4 sm:pt-10 sm:pb-5">
-        <div
-          className="-mx-7 sm:-mx-6 border-t border-dashed border-border mb-5 sm:mb-6"
-          aria-hidden="true"
-        />
+        <LinesBG className="-mx-7 sm:-mx-6 mb-5 sm:mb-6" />
         <h3 className="text-section-title font-title font-semibold text-muted-foreground mb-6">
           Connect
         </h3>
@@ -46,7 +44,7 @@ export function Contact() {
               rel="noopener noreferrer"
               className="group flex flex-col gap-0.5"
             >
-              <span className="inline-flex items-baseline gap-1 text-item-title font-title font-medium text-foreground underline decoration-border underline-offset-4 group-hover:decoration-foreground/60 transition-all duration-200">
+              <span className="inline-flex items-baseline gap-1 text-[1rem] font-title font-medium text-foreground underline decoration-border underline-offset-4 group-hover:decoration-foreground/60 transition-all duration-200">
                 {label}
                 <HugeiconsIcon
                   icon={ArrowUpRight03Icon}

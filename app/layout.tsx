@@ -7,6 +7,8 @@ import { ImageViewer } from "@/components/shells/image-viewer";
 import { siteConfig } from "@/config/site";
 import { Footer } from "@/components/ui/footer";
 import { DashedVerticalLines } from "@/components/ui/grid-patterns";
+import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import ClientDither from "@/components/dither/client-dither";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -101,15 +103,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${outfit.variable} ${instrumentSerif.variable} min-h-screen antialiased font-sans`}
+        className={`${inter.variable} ${outfit.variable} ${instrumentSerif.variable} min-h-screen antialiased font-sans noise-overlay`}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           disableTransitionOnChange
         >
+          <ClientDither />
+          <ProgressiveBlur
+            className="pointer-events-none z-[500] fixed bottom-0 w-full h-20"
+            direction="bottom"
+            blurIntensity={1}
+          />
           <Menu />
-          <DashedVerticalLines className="max-w-[44rem] mx-4 sm:mx-auto pt-6 sm:pt-8">
+          <DashedVerticalLines className="max-w-[48rem] mx-4 sm:mx-auto pt-6 sm:pt-8">
             <main className="w-full flex-1 pt-2 pb-2 sm:pt-4 sm:pb-4">
               {children}
             </main>
