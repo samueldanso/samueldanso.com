@@ -13,7 +13,7 @@ export function SectionGrid({ className, children }: SectionGridProps) {
   return (
     <FadeUp>
       <div className="flex flex-col pb-8 md:pb-16">
-        <LinesBG className="-mx-7 sm:-mx-6 mb-8 md:mb-16" />
+        <LinesBG className="-mx-4 sm:-mx-5 mb-8 md:mb-16" />
         <dl
           className={cn(
             "grid grid-cols-12 gap-x-8 gap-y-3 sm:gap-y-4",

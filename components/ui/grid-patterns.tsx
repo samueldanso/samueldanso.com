@@ -184,7 +184,7 @@ export function HorizontalDashedLine({ className }: GridPatternProps) {
 export function DashedDivider({ className }: GridPatternProps) {
   return (
     <div
-      className={cn("flex flex-col gap-2 -mx-[28px] sm:-mx-6", className)}
+      className={cn("flex flex-col gap-2 -mx-4 sm:-mx-5", className)}
       aria-hidden="true"
     >
       <div className="w-full border-t border-dashed border-border" />

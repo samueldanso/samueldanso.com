@@ -218,7 +218,7 @@ export default async function WorkDetailPage({ params }: WorkPageProps) {
           </h3>
           <Badge
             variant="outline"
-            className="rounded-full font-normal text-caption py-1.5 px-3"
+            className="rounded-md font-normal text-caption py-1.5 px-3 whitespace-normal"
           >
             {project.award}
           </Badge>
