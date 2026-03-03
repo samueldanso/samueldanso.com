@@ -1,5 +1,4 @@
 import { Awards } from "@/components/sections/awards"
-import { Contact } from "@/components/sections/contact"
 import { Experience } from "@/components/sections/experience"
 import { Header } from "@/components/sections/header"
 import { About } from "@/components/sections/about"
@@ -17,7 +16,6 @@ export default function Home() {
 			<Writing />
 			<Awards />
 			<Highlights />
-			<Contact />
 		</section>
 	)
 }

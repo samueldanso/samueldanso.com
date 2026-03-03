@@ -3,6 +3,7 @@ import {
   Github01Icon,
   Link01Icon,
 } from "@hugeicons/core-free-icons";
+import { SubPageNav } from "@/components/sections/sub-page-nav";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { allWorks } from "content-collections";
 import Image from "next/image";
@@ -16,13 +17,14 @@ export default function WorkPage() {
   return (
     <div className="container py-6 md:py-8">
       <section className="pb-8 sm:pb-10">
-        <div className="mb-4">
+        <div className="flex items-center justify-between mb-4">
           <Link
             href="/"
             className="text-caption text-muted-foreground font-medium no-underline hover:text-foreground transition-colors duration-200"
           >
             <span className="text-muted-foreground/50">~</span> Home
           </Link>
+          <SubPageNav />
         </div>
         <h1 className="text-[1.625rem] leading-tight font-display font-medium text-foreground mb-2">
           All Projects

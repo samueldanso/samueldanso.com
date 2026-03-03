@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import { useImageStore } from "@/lib/store/use-image";
 import { FadeUp } from "@/components/ui/animate";
+import { LinesBG } from "@/components/ui/grid-patterns";
 
 function HighlightImage({ src, alt }: { src: string; alt: string }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -62,15 +63,12 @@ export function Highlights() {
 
   return (
     <FadeUp>
-      <div className="flex flex-col py-8 sm:py-10">
-        <div
-          className="-mx-7 sm:-mx-6 border-t border-dashed border-border mb-5 sm:mb-6"
-          aria-hidden="true"
-        />
+      <div className="flex flex-col">
+        <LinesBG className="-mx-7 sm:-mx-6 mb-8 md:mb-16" />
         <h3 className="text-section-title font-title font-semibold text-muted-foreground mb-6">
           Highlights
         </h3>
-        <div className="-mx-7 sm:-mx-6 rounded-xl bg-muted/30 p-4 sm:p-5">
+        <div className="rounded-xl bg-muted/30 border border-dashed border-border p-4 sm:p-5">
           <Carousel
             opts={{
               align: "start",

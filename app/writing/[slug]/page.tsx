@@ -2,6 +2,7 @@ import { allWritings } from "content-collections";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { SubPageNav } from "@/components/sections/sub-page-nav";
 import { readingTime } from "reading-time-estimator";
 import { MDX } from "@/components/mdx";
 
@@ -44,13 +45,14 @@ export default function WritingDetailPage({ params }: WritingPageProps) {
 
   return (
     <div className="container py-6 md:py-8">
-      <div className="mb-6">
+      <div className="flex items-center justify-between mb-6">
         <Link
           href="/writing"
           className="text-caption text-muted-foreground font-medium no-underline hover:text-foreground transition-colors duration-200"
         >
           <span className="text-muted-foreground/50">~</span> Writing
         </Link>
+        <SubPageNav />
       </div>
 
       <header className="pb-8 mb-8 border-b border-dashed border-border">

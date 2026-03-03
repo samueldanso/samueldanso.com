@@ -29,7 +29,7 @@ export function Header({ name, title, isActive }: HeaderProps) {
         />
         */}
         <div className="flex flex-col items-start gap-0.5">
-          <h1 className="text-[28px] leading-tight font-display font-medium text-foreground">
+          <h1 className="text-[30px] leading-tight font-display font-medium text-foreground">
             {name}
           </h1>
           <p className="text-body text-muted-foreground font-title">{title}</p>

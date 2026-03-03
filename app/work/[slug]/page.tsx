@@ -1,4 +1,5 @@
 import { Github01Icon, GlobalIcon } from "@hugeicons/core-free-icons";
+import { SubPageNav } from "@/components/sections/sub-page-nav";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { allWorks } from "content-collections";
 import type { Metadata } from "next";
@@ -31,13 +32,14 @@ export default async function WorkDetailPage({ params }: WorkPageProps) {
 
   return (
     <div className="container py-6 md:py-8">
-      <div className="mb-6">
+      <div className="flex items-center justify-between mb-6">
         <Link
           href="/work"
           className="text-caption text-muted-foreground font-medium no-underline hover:text-foreground transition-colors duration-200"
         >
           <span className="text-muted-foreground/50">~</span> Work
         </Link>
+        <SubPageNav />
       </div>
 
       {project.image && (
