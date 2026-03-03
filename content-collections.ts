@@ -81,6 +81,7 @@ const experience = defineCollection({
     company: z.string(),
     companyHref: z.string().optional(),
     location: z.string(),
+    bullets: z.array(z.string()).optional(),
   }),
 });
 
@@ -97,19 +98,6 @@ const awards = defineCollection({
   }),
 });
 
-const highlights = defineCollection({
-  name: "highlights",
-  directory: "content/highlights",
-  include: "**/*.mdx",
-  schema: z.object({
-    title: z.string(),
-    image: z.string(),
-    sort: z.number(),
-    type: z.string().optional(),
-    videoUrl: z.string().optional(),
-  }),
-});
-
 export default defineConfig({
-  collections: [writing, work, experience, awards, highlights],
+  collections: [writing, work, experience, awards],
 });

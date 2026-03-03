@@ -1,6 +1,5 @@
 "use client";
 
-import { allHighlights } from "content-collections";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { useState } from "react";
@@ -12,6 +11,29 @@ import {
 import { useImageStore } from "@/lib/store/use-image";
 import { FadeUp } from "@/components/ui/animate";
 import { LinesBG } from "@/components/ui/grid-patterns";
+
+const HIGHLIGHTS = [
+  {
+    title: "African Builder Stories Singapore",
+    image: "/images/highlights/african-builder-stories.JPG",
+  },
+  {
+    title: "Building at ETHiopia Builder Residency",
+    image: "/images/highlights/ETHiopia-residency.jpg",
+  },
+  {
+    title: "Hacking at ETHiopia Builder Hackathon",
+    image: "/images/highlights/ETHopia-hackathon.jpg",
+  },
+  {
+    title: "Pitching at ShanHaiWoo Singapore",
+    image: "/images/highlights/shanhaiwoo-singapore-pitch.JPG",
+  },
+  {
+    title: "Building at ShanHaiWoo Singapore",
+    image: "/images/highlights/shanhaiwoo-singapore-residency.JPG",
+  },
+];
 
 function HighlightImage({ src, alt }: { src: string; alt: string }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,12 +77,6 @@ function HighlightImage({ src, alt }: { src: string; alt: string }) {
 }
 
 export function Highlights() {
-  const sorted = [...allHighlights].sort((a, b) => a.sort - b.sort);
-
-  if (sorted.length === 0) {
-    return null;
-  }
-
   return (
     <FadeUp>
       <div className="flex flex-col">
@@ -70,20 +86,13 @@ export function Highlights() {
         </h3>
         <div className="rounded-xl bg-muted/30 border border-dashed border-border p-4 sm:p-5">
           <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            plugins={[
-              Autoplay({
-                delay: 3000,
-              }),
-            ]}
+            opts={{ align: "start", loop: true }}
+            plugins={[Autoplay({ delay: 3000 })]}
           >
             <CarouselContent>
-              {sorted.map((item) => (
+              {HIGHLIGHTS.map((item) => (
                 <CarouselItem
-                  key={item._meta.filePath}
+                  key={item.image}
                   className="basis-[85%] sm:basis-[65%]"
                 >
                   <HighlightImage src={item.image} alt={item.title} />

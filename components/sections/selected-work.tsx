@@ -8,9 +8,9 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { allWorks } from "content-collections";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { WorkListItem } from "@/components/sections/work-list-item";
-import { ProjectPreviewCard } from "@/components/ui/project-preview-card";
 import {
   SectionContent,
   SectionGrid,
@@ -20,6 +20,56 @@ import {
 interface ActiveProject {
   image: string;
   title: string;
+}
+
+const PREVIEW_WIDTH = 320;
+
+function ProjectPreviewCard({
+  image,
+  title,
+  visible,
+}: {
+  image?: string;
+  title?: string;
+  visible: boolean;
+}) {
+  const rawX = useMotionValue(0);
+  const rawY = useMotionValue(0);
+  const x = useSpring(rawX, { stiffness: 180, damping: 22, mass: 0.5 });
+  const y = useSpring(rawY, { stiffness: 180, damping: 22, mass: 0.5 });
+
+  useEffect(() => {
+    function handleMouseMove(e: MouseEvent) {
+      rawX.set(e.clientX + 20);
+      rawY.set(e.clientY - 100);
+    }
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [rawX, rawY]);
+
+  return (
+    <motion.div
+      initial={false}
+      className="pointer-events-none fixed left-0 top-0 z-50 rounded-xl border border-border bg-card p-1.5 shadow-xl"
+      style={{ x, y, width: PREVIEW_WIDTH }}
+      animate={{ opacity: visible ? 1 : 0, scale: visible ? 1 : 0.95 }}
+      transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      {image && (
+        <div className="relative w-full overflow-hidden rounded-lg">
+          <Image
+            src={image}
+            alt={title ?? ""}
+            width={PREVIEW_WIDTH}
+            height={Math.round(PREVIEW_WIDTH * 0.625)}
+            className="w-full h-auto object-cover rounded-lg"
+            sizes={`${PREVIEW_WIDTH}px`}
+            priority={false}
+          />
+        </div>
+      )}
+    </motion.div>
+  );
 }
 
 export function SelectedWork() {
@@ -60,13 +110,15 @@ export function SelectedWork() {
             <dd className="col-span-12 sm:col-span-8">
               <div className="flex items-center gap-2">
                 {project.icon && (
-                  <Image
-                    src={project.icon}
-                    alt=""
-                    width={16}
-                    height={16}
-                    className="size-4 shrink-0 rounded-sm"
-                  />
+                  <div className="size-7 rounded-sm border border-dashed border-border/70 bg-muted/30 flex items-center justify-center shrink-0">
+                    <Image
+                      src={project.icon}
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="size-4 rounded-sm object-contain"
+                    />
+                  </div>
                 )}
                 <a
                   href={project.href}

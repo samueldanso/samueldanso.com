@@ -29,19 +29,29 @@ export function Awards() {
                     href={award.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-baseline gap-1 text-item-title font-title font-medium text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground/60 transition-all duration-200"
+                    className="group/title inline-flex items-center gap-1 text-item-title font-title font-medium text-foreground"
                   >
-                    {award.title}
+                    <span className="border-b border-dashed border-foreground/60 group-hover/title:border-foreground transition-colors duration-200">
+                      {award.title}
+                    </span>
                     <HugeiconsIcon
                       icon={ArrowUpRight03Icon}
                       size={13}
                       strokeWidth={2}
-                      className="translate-y-[1px] text-muted-foreground group-hover:text-foreground/70 group-hover:-translate-y-0.5 transition-all duration-200"
+                      className="text-muted-foreground group-hover/title:text-foreground/70 group-hover/title:-translate-y-0.5 transition-all duration-200"
                     />
                   </a>
                 ) : (
-                  <div className="text-item-title font-title font-medium text-foreground">
-                    {award.title}
+                  <div className="inline-flex items-center gap-1 text-item-title font-title font-medium text-foreground">
+                    <span className="border-b border-dashed border-foreground/60">
+                      {award.title}
+                    </span>
+                    <HugeiconsIcon
+                      icon={ArrowUpRight03Icon}
+                      size={13}
+                      strokeWidth={2}
+                      className="text-muted-foreground"
+                    />
                   </div>
                 )}
                 {award.description && (

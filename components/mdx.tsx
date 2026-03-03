@@ -23,7 +23,18 @@ const components = {
       data-highlight="false"
       id={props.children?.toString().toLowerCase().replace(/\s+/g, "-")}
       className={cn(
-        "font-title font-medium lg:leading-[1.1] mb-2 text-[16px]",
+        "mt-8 font-title font-semibold leading-tight text-xl text-foreground mb-2",
+        className,
+      )}
+      {...props}
+    />
+  ),
+  h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h2
+      data-highlight="false"
+      id={props.children?.toString().toLowerCase().replace(/\s+/g, "-")}
+      className={cn(
+        "mt-8 font-title font-semibold leading-tight text-[1.125rem] text-foreground mb-2",
         className,
       )}
       {...props}
@@ -34,7 +45,7 @@ const components = {
       data-highlight="false"
       id={props.children?.toString().toLowerCase().replace(/\s+/g, "-")}
       className={cn(
-        "mt-9 scroll-m-20 font-title font-medium lg:leading-[1.1] group text-[15.5px]",
+        "mt-6 scroll-m-20 font-title font-semibold leading-tight text-base text-foreground",
         className,
       )}
       {...props}
@@ -43,7 +54,7 @@ const components = {
   p: ({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p
       className={cn(
-        "prose prose-neutral dark:prose-invert text-[16px] leading-7 [&:not(:first-child)]:mt-6  ",
+        "prose prose-neutral dark:prose-invert text-[16px] leading-7 text-foreground/85 [&:not(:first-child)]:mt-6",
         className,
       )}
       {...props}

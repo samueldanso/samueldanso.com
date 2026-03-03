@@ -9,7 +9,7 @@ import { allWorks } from "content-collections";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { getTechIcon } from "@/config/tech-icons";
+import { getTechIcon } from "@/components/icons";
 
 export default function WorkPage() {
   const sortedProjects = [...allWorks].sort((a, b) => a.sort - b.sort);

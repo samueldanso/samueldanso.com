@@ -1,5 +1,6 @@
 import { allWritings } from "content-collections";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SubPageNav } from "@/components/sections/sub-page-nav";
@@ -7,9 +8,7 @@ import { readingTime } from "reading-time-estimator";
 import { MDX } from "@/components/mdx";
 
 interface WritingPageProps {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 function formatDate(date: Date): string {
@@ -20,25 +19,21 @@ function formatDate(date: Date): string {
   }).format(date);
 }
 
-export function generateMetadata({ params }: WritingPageProps): Metadata {
-  const post = allWritings.find((post) => post._meta.path === params.slug);
-
-  if (!post) {
-    return {
-      title: "Writing Not Found",
-    };
-  }
-
+export async function generateMetadata({
+  params,
+}: WritingPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = allWritings.find((p) => p._meta.path === slug);
+  if (!post) return { title: "Writing Not Found" };
   return {
-    title: {
-      absolute: post.title,
-    },
+    title: { absolute: post.title },
     description: post.summary,
   };
 }
 
-export default function WritingDetailPage({ params }: WritingPageProps) {
-  const post = allWritings.find((post) => post._meta.path === params.slug);
+export default async function WritingDetailPage({ params }: WritingPageProps) {
+  const { slug } = await params;
+  const post = allWritings.find((p) => p._meta.path === slug);
   if (!post) return notFound();
 
   const readingTimeMinutes = readingTime(post.content).minutes;
@@ -89,9 +84,44 @@ export default function WritingDetailPage({ params }: WritingPageProps) {
         )}
       </header>
 
-      <div className="prose prose-zinc dark:prose-invert max-w-none">
+      {post.image && (
+        <div className="relative w-full aspect-video rounded-lg overflow-hidden mb-10">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      )}
+
+      <div className="prose prose-zinc dark:prose-invert max-w-none mb-10">
         <MDX code={post.mdx} />
       </div>
+
+      {(post.prev || post.next) && (
+        <div className="mt-10 pt-8 border-t border-dashed border-border">
+          <div className="flex justify-between items-center">
+            {post.prev && (
+              <Link
+                href={`/writing/${post.prev._meta.path}`}
+                className="text-caption text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                &larr; {post.prev.title}
+              </Link>
+            )}
+            {post.next && (
+              <Link
+                href={`/writing/${post.next._meta.path}`}
+                className="text-caption text-muted-foreground hover:text-foreground transition-colors duration-200 ml-auto"
+              >
+                {post.next.title} &rarr;
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
