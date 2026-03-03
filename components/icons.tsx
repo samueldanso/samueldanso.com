@@ -44,8 +44,6 @@ export const techIcons: Record<string, TechIcon> = {
   Zod: { logoUrl: "https://cdn.simpleicons.org/zod" },
   "AI SDK": { logoUrl: "https://cdn.simpleicons.org/vercel", invertInDarkMode: true },
   "wagmi/viem": { logoUrl: "https://cdn.simpleicons.org/wagmi" },
-  Base: { logoUrl: "https://cdn.simpleicons.org/base" },
-  Hardhat: { logoUrl: "https://cdn.simpleicons.org/hardhat" },
 };
 
 export function getTechIcon(name: string): TechIcon | undefined {

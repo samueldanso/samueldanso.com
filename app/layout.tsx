@@ -113,7 +113,7 @@ export default function RootLayout({
 						blurIntensity={0.6}
 					/>
 					<Menu />
-					<DashedVerticalLines className="max-w-[48rem] mx-4 sm:mx-auto pt-6 sm:pt-8">
+					<DashedVerticalLines className="max-w-[48rem] mx-3 sm:mx-auto pt-6 sm:pt-8">
 						<main className="w-full flex-1 pt-2 pb-2 sm:pt-4 sm:pb-4">{children}</main>
 						<Footer />
 					</DashedVerticalLines>
