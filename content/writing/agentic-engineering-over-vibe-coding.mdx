@@ -1,0 +1,84 @@
+---
+title: 'Agentic Engineering > Vibe Coding'
+summary: 'Using agents to code is the new normal. Vibe coding is already a relic. Pretty soon "agentic engineering" will just be called engineering — because any professional who isn't orchestrating agents will be the exception, not the rule.'
+date: '2026-02-14'
+tags: ['AI', 'engineering', 'agentic', 'tools']
+image: '/images/projects/necta-preview.png'
+---
+
+# Agentic Engineering > Vibe Coding
+
+Here's a quick litmus test: if someone uses the term "vibe coding" to describe code written with AI agents, they're not actually building real things with agents.
+
+There is a world of difference between vibe coding and agentic engineering. And the gap is only going to become more obvious — because agent-assisted development isn't some niche approach anymore. It's becoming the default. Pretty soon, we won't need the qualifier "agentic" at all. It'll just be assumed that any professional engineer is using agents to code. The ones who aren't will be the outliers.
+
+We're closer to that moment than most people realise.
+
+---
+
+## What Vibe Coding Actually Was
+
+Andrej Karpathy coined the term in early 2025 — fully surrendering to AI output, not reading the generated code, just vibing until something ships. Collins Dictionary named it Word of the Year. Everyone started shipping apps with Cursor and Claude without reviewing a single diff.
+
+The backlash came fast, and it was deserved.
+
+A Veracode study found 45% of AI-generated code introduces security vulnerabilities. Lovable had security holes in 170 of 1,645 generated apps — exposing real user data. A Replit AI agent deleted a production database. The Tea App had a breach exposing 72,000 images including government ID photos. 18 CTOs reported production disasters directly tied to AI-generated code.
+
+GitClear analyzed 211 million lines of code changes: refactoring dropped from 25% of changed lines in 2021 to under 10% by 2024. Code duplication increased 4x. The technical debt is real and it compounds.
+
+But the problem was never the AI tools. It was treating a power tool like a toy.
+
+Karpathy himself walked it back — his next project, Nanochat, was essentially hand-written. He tried Claude and Codex agents and they "just didn't work well enough." More importantly, he reframed the whole thing:
+
+> _"You are not writing the code directly 99% of the time, you are orchestrating agents who do and acting as oversight. 'Engineering' to emphasize that there is an art & science and expertise to it."_
+
+That's the shift. From surrendering to AI, to directing it.
+
+---
+
+## Agentic Engineering: What It Actually Looks Like
+
+Agentic engineering isn't a harder version of vibe coding. It's a fundamentally different posture.
+
+Vibe coding: accept AI output blindly, ship, hope for the best.
+
+Agentic engineering: AI does the implementation, you own the architecture, the constraints, the review, and the accountability.
+
+Addy Osmani put it simply — _"Vibe coding = YOLO. Agentic engineering = AI does the implementation, human owns the quality and correctness."_ Simon Willison, creator of Datasette, has a rule worth adopting: he won't commit any code he couldn't explain to someone else. That's the line.
+
+When I built Necta, I designed a multi-agent architecture from scratch — three specialized agents (Sentinel, Curator, Executor) that collaborate to optimize DeFi yield strategies, fully on-chain and self-custodial. I had to understand every agent's exact responsibility, design the handoffs between them, define guardrails so no agent could make destructive decisions with user funds, and validate every output before it touched anything real. The agents did the execution. I owned the design.
+
+That's not a more disciplined version of vibe coding. It's a completely different skill set.
+
+---
+
+## The New Normal Is Already Here
+
+The Stack Overflow 2025 Developer Survey found 84% of developers use or intend to use AI tools. But developers report they can "fully delegate" only 0–20% of tasks. The rest needs supervision, validation, and judgment.
+
+The developers who are pulling ahead aren't the fastest prompters. They're the ones who can:
+
+- **Design agent systems** — what each agent's job is, what it can and can't do
+- **Define precise objectives and guardrails** — constraints that prevent agents from going rogue
+- **Validate output rigorously** — review every diff, write tests, understand the system
+- **Think in orchestration** — multiple AI workstreams running in parallel under human oversight
+
+The leverage is real. But it requires a human with the engineering depth to use it.
+
+---
+
+## Why "Agentic" Is Already a Temporary Word
+
+Here's the thing about the word "agentic": it exists because we needed a way to distinguish serious, orchestrated AI development from vibe coding. It's a useful label for right now, during the transition.
+
+But transitions end.
+
+In a few years, saying "agentic engineer" will sound like saying "developer who uses the internet." It'll be redundant. The baseline expectation for any professional engineer will include agent orchestration, just as it includes version control, testing, and code review today.
+
+Vibe coding will be remembered as a moment when the tools briefly outpaced the craft — a cautionary tale taught in onboarding docs. Agentic engineering will just be called engineering.
+
+The only question is whether you're building the skills now to be part of that normal, or catching up later.
+
+---
+
+_Building with agents, or thinking about where this is all heading? Find me on [Twitter](https://twitter.com/samueldans0) or [LinkedIn](https://www.linkedin.com/in/samueldanso)._

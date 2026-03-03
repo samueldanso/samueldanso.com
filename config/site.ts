@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-	name: "Samuel Danso | Full-Stack Software Engineer",
+	name: "Samuel Danso",
 	description:
-		"Samuel Danso is a full-stack software engineer building AI and web3 products, blending engineering, product thinking, and user experience to solve real problems.",
+		"Samuel Danso is a full-stack software engineer building AI and web3 products, blending engineering, design, and product to ship things that work and feel right.",
 	url: "https://samueldanso.com",
 	ogImage: "https://samueldanso.com/opengraph-image.png",
 	links: {
@@ -14,5 +14,8 @@ export const siteConfig = {
 		telegram: "https://t.me/samueldanso",
 		discord: "https://discord.com/users/samueldanso",
 		cal: "https://cal.com/samueldanso/15m",
+		resume: "https://samueldanso.com/resume.pdf",
+		blog: "https://samueldanso.com/writing",
+		projects: "https://samueldanso.com/work",
 	},
 }
