@@ -10,8 +10,9 @@ export function About() {
 		<div className="space-y-5 sm:space-y-6 pt-6 pb-8 md:pb-16">
 			<section className="text-body text-muted-foreground text-pretty space-y-3">
 				<p>
-					I build AI and web3 products — blending engineering, design taste, and product
-					sense to ship things that work and feel right.
+					I <span className="text-foreground">build</span> AI and web3 products — blending
+					engineering, design taste, and product sense to ship things that work and feel
+					right.
 				</p>
 				<p>
 					Previously Founding Engineer at{" "}
