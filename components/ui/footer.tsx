@@ -21,7 +21,7 @@ export function Footer() {
     : null;
 
   return (
-    <footer className="flex items-center justify-between pt-8 pb-16 px-7 sm:px-6 text-small text-muted-foreground">
+    <footer className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-0 pt-8 pb-16 px-7 sm:px-6 text-small text-muted-foreground">
       <span>
         &copy; {new Date().getFullYear()}{" "}
         Made with{" "}
