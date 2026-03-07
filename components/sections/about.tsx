@@ -10,9 +10,9 @@ export function About() {
 		<div className="space-y-5 sm:space-y-6 pt-6 pb-8 md:pb-16">
 			<section className="text-body text-muted-foreground text-pretty space-y-3">
 				<p>
-					I <span className="text-foreground">build</span> AI and web3 products — blending
-					engineering, design taste, and product sense to ship things that work and feel
-					right.
+					I build <span className="text-foreground">AI</span> and{" "}
+					<span className="text-foreground">web3</span> products — blending engineering,
+					design taste, and product sense to ship things that work and feel right.
 				</p>
 				<p>
 					Previously Founding Engineer at{" "}
@@ -39,7 +39,7 @@ export function About() {
 							className="text-muted-foreground group-hover/necta:text-foreground/70 group-hover/necta:-translate-y-0.5 transition-all duration-200"
 						/>
 					</a>
-					. 8X international hackathon winner.
+					. 8x international hackathon winner.
 				</p>
 			</section>
 

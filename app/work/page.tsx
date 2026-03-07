@@ -44,7 +44,7 @@ export default function WorkPage() {
               {project.image && (
                 <Link
                   href={`/work/${project._meta.path}`}
-                  className="block overflow-hidden rounded-lg border border-dashed border-border/70"
+                  className="group/image relative block overflow-hidden rounded-lg border border-dashed border-border/70"
                 >
                   <Image
                     src={project.image}
@@ -52,8 +52,9 @@ export default function WorkPage() {
                     width={600}
                     height={400}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="rounded-lg w-full aspect-video object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    className="rounded-lg w-full aspect-video object-cover transition-transform duration-300 ease-out will-change-transform group-hover/image:scale-110"
                   />
+                  <div className="pointer-events-none absolute inset-0 bg-foreground/5 opacity-0 transition-opacity duration-300 ease-out group-hover/image:opacity-100" />
                 </Link>
               )}
 
