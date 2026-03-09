@@ -10,10 +10,10 @@ export function About() {
 		<div className="space-y-5 sm:space-y-6 pt-6 pb-8 md:pb-16">
 			<section className="text-body text-muted-foreground text-pretty space-y-3">
 				<p>
-					I build <span className="text-foreground">AI-native</span> and{" "}
-					<span className="text-foreground">onchain</span> products — blending
-					engineering, design taste, and product sense to ship agentic systems that work
-					and feel right.
+					I build{" "}
+					<span className="text-foreground">AI-native</span> and{" "}
+					<span className="text-foreground">onchain products</span>{" "}
+					end-to-end — engineering with a taste for how software works and feels right.
 				</p>
 				<p>
 					Previously Founding Engineer at{" "}

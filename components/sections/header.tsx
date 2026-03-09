@@ -32,7 +32,7 @@ export function Header({ name, title, isActive }: HeaderProps) {
 					<h1 className="text-[24px] md:text-[26px] lg:text-[28px] leading-tight font-display font-medium text-foreground">
 						{name}
 					</h1>
-					<p className="text-sm text-muted-foreground font-sans">{title}</p>
+					<p className="text-[15px] text-muted-foreground font-sans">{title}</p>
 					{isActive && (
 						<div className="mt-1 flex items-center gap-2">
 							<span
