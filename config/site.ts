@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
 	name: "Samuel Danso",
 	description:
-		"Samuel Danso is a full-stack software engineer building AI and web3 products, blending engineering, design, and product to ship things that work and feel right.",
+		"Samuel Danso is a software engineer building AI-native and web3 products end-to-end — engineering with a taste for how software works and feels right.",
 	url: "https://samueldanso.com",
 	ogImage: "https://samueldanso.com/opengraph-image.png",
 	links: {
