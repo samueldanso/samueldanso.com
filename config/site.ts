@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-	name: "Samuel Danso",
+	name: "Samuel Danso — Software Engineer",
 	description:
 		"Samuel Danso is a software engineer building AI-native and web3 products end-to-end — engineering with a taste for how software works and feels right.",
 	url: "https://samueldanso.com",
