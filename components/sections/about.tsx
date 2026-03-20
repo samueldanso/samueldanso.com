@@ -10,37 +10,65 @@ export function About() {
 		<div className="space-y-5 sm:space-y-6 pt-6 pb-8 md:pb-16">
 			<section className="text-body text-muted-foreground text-pretty space-y-3">
 				<p>
-					I build{" "}
-					<span className="text-foreground">AI-native</span> and{" "}
-					<span className="text-foreground">onchain products</span>{" "}
-					end-to-end — engineering with a taste for how software works and feels right.
+					I build <span className="text-foreground">AI-native</span> and{" "}
+					<span className="text-foreground">on-chain products</span>, with a focus on how
+					they work and feel.
 				</p>
 				<p>
-					Previously Founding Engineer at{" "}
+					Currently building{" "}
 					<a
-						href="https://necta-fi.vercel.app"
+						href="https://usezenithpay.xyz"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="group/necta inline-flex items-center gap-1 mx-0.5 translate-y-0.5"
+						className="group/zenithpay inline-flex items-center gap-1 mx-0.5 translate-y-0.5"
 					>
 						<Image
-							src="/icons/necta-icon.svg"
-							alt="Necta Finance"
+							src="/icons/zenithpay-icon.svg"
+							alt="ZenithPay"
 							width={16}
 							height={16}
 							className="rounded-sm"
 						/>
-						<span className="font-title font-medium text-[15px] text-foreground border-b border-dashed border-foreground/60 group-hover/necta:border-foreground transition-colors duration-200">
-							Necta Finance
+						<span className="font-title font-medium text-[15px] text-foreground border-b border-dashed border-foreground/60 group-hover/zenithpay:border-foreground transition-colors duration-200">
+							ZenithPay
 						</span>
 						<HugeiconsIcon
 							icon={ArrowUpRight03Icon}
 							size={12}
 							strokeWidth={2}
-							className="text-muted-foreground group-hover/necta:text-foreground/70 group-hover/necta:-translate-y-0.5 transition-all duration-200"
+							className="text-muted-foreground group-hover/zenithpay:text-foreground/70 group-hover/zenithpay:-translate-y-0.5 transition-all duration-200"
 						/>
 					</a>
-					. 8x international hackathon winner.
+					{" "}
+					— the spend control layer for the agentic economy.
+					<br />
+					<span className="block mt-1">
+						Previously Founding Engineer at{" "}
+						<a
+							href="https://necta-fi.vercel.app"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="group/necta inline-flex items-center gap-1 mx-0.5 translate-y-0.5"
+						>
+							<Image
+								src="/icons/necta-icon.svg"
+								alt="Necta Finance"
+								width={16}
+								height={16}
+								className="rounded-sm"
+							/>
+							<span className="font-title font-medium text-[15px] text-foreground border-b border-dashed border-foreground/60 group-hover/necta:border-foreground transition-colors duration-200">
+								Necta Finance
+							</span>
+							<HugeiconsIcon
+								icon={ArrowUpRight03Icon}
+								size={12}
+								strokeWidth={2}
+								className="text-muted-foreground group-hover/necta:text-foreground/70 group-hover/necta:-translate-y-0.5 transition-all duration-200"
+							/>
+						</a>
+						. 8× international hackathon winner.
+					</span>
 				</p>
 			</section>
 
