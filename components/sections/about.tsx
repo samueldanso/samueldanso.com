@@ -38,9 +38,8 @@ export function About() {
 							strokeWidth={2}
 							className="text-muted-foreground group-hover/zenithpay:text-foreground/70 group-hover/zenithpay:-translate-y-0.5 transition-all duration-200"
 						/>
-					</a>
-					{" "}
-					— the spend control layer for the agentic economy.
+					</a>{" "}
+					— financial infrastructure for the agentic economy.
 					<br />
 					<span className="block mt-1">
 						Previously Founding Engineer at{" "}
