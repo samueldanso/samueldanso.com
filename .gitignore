@@ -45,3 +45,6 @@ todos.md
 /structure.md
 # Content Collections
 .content-collections
+
+# Claude worktrees
+.claude/worktrees/
