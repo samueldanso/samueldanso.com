@@ -95,7 +95,7 @@ function ExperienceCard({
         )}
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <p className="text-[12px] uppercase tracking-widest text-muted-foreground/70 font-medium mb-0.5">
+        <p className="text-[14px] text-muted-foreground/70 font-medium mb-0.5">
           {role}
         </p>
 

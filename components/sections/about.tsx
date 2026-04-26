@@ -51,11 +51,11 @@ export function About() {
 							className="text-muted-foreground group-hover/necta:text-foreground/70 group-hover/necta:-translate-y-0.5 transition-all duration-200"
 						/>
 					</a>
-					. 8× international hackathon winner.
+					. 9× international hackathon winner.
 				</p>
 			</section>
 
-			<div className="flex flex-wrap items-center gap-x-4 gap-y-2 pb-2">
+			<div className="flex flex-wrap items-center gap-x-4 gap-y-2 pb-2">	
 				<a
 					href={siteConfig.links.cal}
 					target="_blank"
